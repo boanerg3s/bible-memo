@@ -14,7 +14,7 @@ const getConnection = () => {
  * @param params params to be attached to the query
  * @returns
  */
-export const transact = (query: string, params?: number[] | string[]) => {
+export const transact = (query: string, params?: (number | string)[]) => {
   return new Promise((res, rej) => {
     const conn = getConnection();
     const cb: SQLite.SQLTransactionCallback = (tx) => tx.executeSql(query, params);
@@ -28,7 +28,7 @@ export const transact = (query: string, params?: number[] | string[]) => {
  * @param params params to be attached to the query
  * @returns
  */
-export const execute = (query: string, params?: number[] | string[]): Promise<SQLite.ResultSet[]> => {
+export const execute = (query: string, params?: (number | string)[]): Promise<SQLite.ResultSet[]> => {
   return new Promise((res, rej) => {
     const conn = getConnection();
 
