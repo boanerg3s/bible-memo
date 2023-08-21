@@ -3,6 +3,7 @@ import { ExpoConfig } from "expo/config";
 const config: ExpoConfig = {
   name: "bible-memo-app",
   slug: "bible-memo-app",
+  scheme: "bible-memo-app",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
