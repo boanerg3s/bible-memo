@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import * as ObjectiveService from "@/services/objective-service";
+import * as ObjectiveService from "@/helpers/objective";
 
 interface ObjectiveStore {
   loading: boolean;
