@@ -1,4 +1,5 @@
 import * as SQLite from "expo-sqlite";
+import { reloadApplication } from "@/helpers/app";
 
 /**
  * Get the SQLite Connection
@@ -45,7 +46,7 @@ export const execute = (query: string, params?: (number | string)[]): Promise<SQ
  * Create all app tables if they don't exists
  * @returns void
  */
-export const initializeDatabase = async () => {
+export const initializeDatabase = async (): Promise<void> => {
   await execute("PRAGMA foreign_keys = ON;");
 
   await transact(`
@@ -61,4 +62,15 @@ export const initializeDatabase = async () => {
       verse_to INTEGER NOT NULL
     );
   `);
+};
+
+/**
+ * Delete the entire database and restart the application
+ * @returns void
+ */
+export const cleanDatabase = async (): Promise<void> => {
+  const conn = getConnection();
+  await conn.closeAsync();
+  await conn.deleteAsync();
+  await reloadApplication();
 };
