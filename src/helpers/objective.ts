@@ -1,4 +1,4 @@
-import * as db from "@/services/database-service";
+import * as db from "@/services/database";
 
 /**
  * Get all objectives from database

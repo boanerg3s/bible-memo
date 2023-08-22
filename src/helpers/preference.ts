@@ -1,4 +1,4 @@
-import * as db from "@/services/database-service";
+import * as db from "@/services/database";
 
 /**
  * Get a single preference by its id
