@@ -5,7 +5,7 @@ import * as db from "@/services/database-service";
  * @returns a preference row
  */
 export const getPreference = async (id: App.Preference["id"]): Promise<App.Preference | null> => {
-  const [results] = await db.execute(`select * from preference where id = ?`, [id]);
+  const [results] = await db.execute(`select * from preference where id = ?;`, [id]);
 
   if (results.rows) {
     const result = results.rows[0];
@@ -21,12 +21,8 @@ export const getPreference = async (id: App.Preference["id"]): Promise<App.Prefe
  * @param value stringfied json
  */
 export const savePreference = async (id: App.Preference["id"], value: string): Promise<void> => {
-  const query = `
-    insert into preference (id, value) values (?, ?)
-    on duplicate key update value = ?
-  `;
-
-  await db.transact(query, [id, value, value]);
+  const query = `replace into preference (id, value) values (?, ?);`;
+  await db.transact(query, [id, value]);
 };
 
 /**
