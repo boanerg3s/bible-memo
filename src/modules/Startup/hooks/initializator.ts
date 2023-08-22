@@ -1,8 +1,9 @@
 import React from "react";
-import { useObjectiveStore } from "@/stores/objective";
-import { initializeDatabase } from "@/services/database-service";
+import { router } from "expo-router";
 import { useLanguageStore } from "@/stores/language";
+import { useObjectiveStore } from "@/stores/objective";
 import { useNotificationStore } from "@/stores/notification";
+import { initializeDatabase } from "@/services/database-service";
 
 export const useInitialization = () => {
   const [isInitialized, setIsInitialized] = React.useState(false);
@@ -26,5 +27,10 @@ export const useInitialization = () => {
     initialize();
   }, []);
 
-  return { isInitialized, isFirstOpen };
+  React.useEffect(() => {
+    if (isInitialized) {
+      if (isFirstOpen) return router.replace("/welcome");
+      return router.replace("/home");
+    }
+  }, [isInitialized, isFirstOpen]);
 };
