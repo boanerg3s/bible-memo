@@ -62,6 +62,13 @@ export const initializeDatabase = async (): Promise<void> => {
       verse_to INTEGER NOT NULL
     );
   `);
+
+  await transact(`
+    CREATE TABLE IF NOT EXISTS preference (
+      id TEXT PRIMARY KEY,
+      value TEXT NOT NULL
+    );
+  `);
 };
 
 /**
