@@ -24,8 +24,8 @@ export const Button = (props: ButtonProps) => {
       alignItems: "center",
       paddingHorizontal: 10,
       justifyContent: "center",
-      borderRadius: rounded ? 48 : 0,
       height: size === "large" ? 48 : 36,
+      borderRadius: rounded ? (size === "large" ? 12 : 48) : 0,
       backgroundColor: type === "primary" ? AppStyles.color.blue : AppStyles.color.gray,
     },
     label: {
