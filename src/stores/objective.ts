@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import * as ObjectiveService from "@/helpers/objective";
+import * as ObjectiveHelper from "@/helpers/objective";
 
 interface ObjectiveStore {
   loading: boolean;
@@ -12,17 +12,17 @@ interface ObjectiveStore {
 export const useObjectiveStore = create<ObjectiveStore>((set) => {
   const fetchObjectives = async () => {
     set((state) => ({ ...state, loading: true }));
-    const newObjectives = await ObjectiveService.getObjectives();
+    const newObjectives = await ObjectiveHelper.getObjectives();
     set((state) => ({ ...state, objectives: newObjectives, loading: false }));
   };
 
   const newObjective = async (passage: Bible.Passage) => {
-    await ObjectiveService.newObjective(passage);
+    await ObjectiveHelper.newObjective(passage);
     await fetchObjectives();
   };
 
   const removeObjective = async (id: number) => {
-    await ObjectiveService.removeObjective(id);
+    await ObjectiveHelper.removeObjective(id);
     await fetchObjectives();
   };
 
