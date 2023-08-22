@@ -20,7 +20,7 @@ export const getPreference = async (id: App.Preference["id"]): Promise<App.Prefe
  * @param id preference id
  * @param value stringfied json
  */
-export const savePreference = async (id: number, value: string): Promise<void> => {
+export const savePreference = async (id: App.Preference["id"], value: string): Promise<void> => {
   const query = `
     insert into preference (id, value) values (?, ?)
     on duplicate key update value = ?
@@ -33,6 +33,6 @@ export const savePreference = async (id: number, value: string): Promise<void> =
  * Delete a objective from database
  * @param id
  */
-export const removePreference = async (id: number): Promise<void> => {
+export const removePreference = async (id: App.Preference["id"]): Promise<void> => {
   await db.transact(`delete from preference where id = ?;`, [id]);
 };
