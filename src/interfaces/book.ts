@@ -66,4 +66,11 @@ declare namespace Bible {
     | "3JN"
     | "JUDE"
     | "REV";
+
+  // { chapter: versesQty }
+  export interface BookDefinition {
+    label: string;
+    abbreviation: string;
+    versesQtyByChapter: Record<number, number>;
+  }
 }
