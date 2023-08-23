@@ -5,4 +5,5 @@ export interface ButtonProps {
   rounded?: boolean;
   size?: "large" | "small";
   type?: "primary" | "secondary";
+  disabled?: boolean;
 }

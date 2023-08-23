@@ -5,9 +5,11 @@ import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "rea
 
 export const Button = (props: ButtonProps) => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const { grow = true, rounded = false, size = "large", type = "primary" } = props;
+  const { grow = true, rounded = false, size = "large", type = "primary", disabled = false } = props;
 
   const onPress = async () => {
+    if (disabled) return;
+
     setIsLoading(true);
     await props.action();
     setIsLoading(false);
@@ -26,13 +28,17 @@ export const Button = (props: ButtonProps) => {
       justifyContent: "center",
       height: size === "large" ? 48 : 36,
       borderRadius: rounded ? (size === "large" ? 12 : 48) : 0,
-      backgroundColor: type === "primary" ? AppStyles.color.blue : AppStyles.color.gray,
+      backgroundColor: disabled
+        ? AppStyles.color.lightGray
+        : type === "primary"
+        ? AppStyles.color.blue
+        : AppStyles.color.gray,
     },
     label: {
       fontWeight: "bold",
       textTransform: "uppercase",
       opacity: isLoading ? 0 : 1,
-      color: AppStyles.color.white,
+      color: disabled ? AppStyles.color.gray : AppStyles.color.white,
       fontSize: size === "large" ? AppStyles.fontSize.lg : AppStyles.fontSize.xs,
     },
     loadingIndicator: {
