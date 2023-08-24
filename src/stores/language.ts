@@ -11,6 +11,12 @@ interface LanguageStore {
   saveLanguagePreference: (language: App.Language) => Promise<void>;
 }
 
+function translatorProxy(i18n: I18n) {
+  return (scope: string, options?: TranslateOptions) => {
+    return i18n.t(scope, options);
+  };
+}
+
 export const useLanguageStore = create<LanguageStore>((set) => {
   const defaultLanguage = LanguageHelper.getDefaultUserLanguage();
 
@@ -33,8 +39,7 @@ export const useLanguageStore = create<LanguageStore>((set) => {
     i18n.defaultLocale = "en";
     i18n.enableFallback = true;
 
-    const tProxy = (scope: string, options?: TranslateOptions) => i18n.t(scope, options);
-    set(() => ({ t: tProxy }));
+    set(() => ({ t: translatorProxy(i18n) }));
   };
 
   return {
