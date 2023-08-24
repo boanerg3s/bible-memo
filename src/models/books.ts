@@ -1,7 +1,5 @@
 const books: Record<Bible.Book, Bible.BookDefinition> = {
   GN: {
-    abbreviation: "genesis.abbr",
-    label: "genesis",
     versesQtyByChapter: {
       1: 31,
       2: 25,
@@ -56,8 +54,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   EX: {
-    abbreviation: "exodus.abbr",
-    label: "exodus",
     versesQtyByChapter: {
       1: 22,
       2: 25,
@@ -102,8 +98,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   LV: {
-    abbreviation: "leviticus.abbr",
-    label: "leviticus",
     versesQtyByChapter: {
       1: 17,
       2: 16,
@@ -135,8 +129,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   NM: {
-    abbreviation: "numbers.abbr",
-    label: "numbers",
     versesQtyByChapter: {
       1: 54,
       2: 34,
@@ -177,8 +169,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   DT: {
-    abbreviation: "deuteronomy.abbr",
-    label: "deuteronomy",
     versesQtyByChapter: {
       1: 46,
       2: 37,
@@ -217,8 +207,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JS: {
-    abbreviation: "joshua.abbr",
-    label: "joshua",
     versesQtyByChapter: {
       1: 18,
       2: 24,
@@ -247,8 +235,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JG: {
-    abbreviation: "judges.abbr",
-    label: "judges",
     versesQtyByChapter: {
       1: 36,
       2: 23,
@@ -274,8 +260,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   RT: {
-    abbreviation: "ruth.abbr",
-    label: "ruth",
     versesQtyByChapter: {
       1: 22,
       2: 23,
@@ -284,8 +268,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1SM": {
-    abbreviation: "1samuel.abbr",
-    label: "1samuel",
     versesQtyByChapter: {
       1: 28,
       2: 36,
@@ -321,8 +303,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2SM": {
-    abbreviation: "2samuel.abbr",
-    label: "2samuel",
     versesQtyByChapter: {
       1: 27,
       2: 32,
@@ -351,8 +331,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1KGS": {
-    abbreviation: "1kings.abbr",
-    label: "1kings",
     versesQtyByChapter: {
       1: 53,
       2: 46,
@@ -379,8 +357,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2KGS": {
-    abbreviation: "2kings.abbr",
-    label: "2kings",
     versesQtyByChapter: {
       1: 18,
       2: 25,
@@ -410,8 +386,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1CH": {
-    abbreviation: "1chronicles.abbr",
-    label: "1chronicles",
     versesQtyByChapter: {
       1: 54,
       2: 55,
@@ -445,8 +419,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2CH": {
-    abbreviation: "2chronicles.abbr",
-    label: "2chronicles",
     versesQtyByChapter: {
       1: 17,
       2: 18,
@@ -487,8 +459,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   EZR: {
-    abbreviation: "ezra.abbr",
-    label: "ezra",
     versesQtyByChapter: {
       1: 11,
       2: 70,
@@ -503,8 +473,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   NEH: {
-    abbreviation: "nehemiah.abbr",
-    label: "nehemiah",
     versesQtyByChapter: {
       1: 11,
       2: 20,
@@ -522,8 +490,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   EST: {
-    abbreviation: "esther.abbr",
-    label: "esther",
     versesQtyByChapter: {
       1: 22,
       2: 23,
@@ -538,8 +504,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JOB: {
-    abbreviation: "job.abbr",
-    label: "job",
     versesQtyByChapter: {
       1: 22,
       2: 13,
@@ -586,8 +550,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   PS: {
-    abbreviation: "psalms.abbr",
-    label: "psalms",
     versesQtyByChapter: {
       1: 6,
       2: 12,
@@ -742,8 +704,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   PROV: {
-    abbreviation: "proverbs.abbr",
-    label: "proverbs",
     versesQtyByChapter: {
       1: 33,
       2: 22,
@@ -779,8 +739,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   ECC: {
-    abbreviation: "ecclesiastes.abbr",
-    label: "ecclesiastes",
     versesQtyByChapter: {
       1: 18,
       2: 26,
@@ -797,8 +755,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   SONG: {
-    abbreviation: "songofsolomon.abbr",
-    label: "songofsolomon",
     versesQtyByChapter: {
       1: 17,
       2: 17,
@@ -811,8 +767,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   ISA: {
-    abbreviation: "isaiah.abbr",
-    label: "isaiah",
     versesQtyByChapter: {
       1: 31,
       2: 22,
@@ -883,8 +837,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JER: {
-    abbreviation: "jeremiah.abbr",
-    label: "jeremiah",
     versesQtyByChapter: {
       1: 19,
       2: 37,
@@ -941,8 +893,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   LAM: {
-    abbreviation: "lamentations.abbr",
-    label: "lamentations",
     versesQtyByChapter: {
       1: 22,
       2: 22,
@@ -952,8 +902,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   EZK: {
-    abbreviation: "ezekiel.abbr",
-    label: "ezekiel",
     versesQtyByChapter: {
       1: 28,
       2: 10,
@@ -1006,8 +954,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   DAN: {
-    abbreviation: "daniel.abbr",
-    label: "daniel",
     versesQtyByChapter: {
       1: 21,
       2: 49,
@@ -1024,8 +970,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   HOS: {
-    abbreviation: "hosea.abbr",
-    label: "hosea",
     versesQtyByChapter: {
       1: 11,
       2: 23,
@@ -1044,8 +988,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JOL: {
-    abbreviation: "joel.abbr",
-    label: "joel",
     versesQtyByChapter: {
       1: 20,
       2: 32,
@@ -1053,8 +995,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   AM: {
-    abbreviation: "amos.abbr",
-    label: "amos",
     versesQtyByChapter: {
       1: 15,
       2: 16,
@@ -1068,15 +1008,11 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   OBAD: {
-    abbreviation: "obadiah.abbr",
-    label: "obadiah",
     versesQtyByChapter: {
       1: 21,
     },
   },
   JON: {
-    abbreviation: "jonah.abbr",
-    label: "jonah",
     versesQtyByChapter: {
       1: 17,
       2: 10,
@@ -1085,8 +1021,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   MIC: {
-    abbreviation: "micah.abbr",
-    label: "micah",
     versesQtyByChapter: {
       1: 16,
       2: 13,
@@ -1098,8 +1032,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   NAH: {
-    abbreviation: "nahum.abbr",
-    label: "nahum",
     versesQtyByChapter: {
       1: 15,
       2: 13,
@@ -1107,8 +1039,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   HAB: {
-    abbreviation: "habakkuk.abbr",
-    label: "habakkuk",
     versesQtyByChapter: {
       1: 17,
       2: 20,
@@ -1116,8 +1046,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   ZEPH: {
-    abbreviation: "zephaniah.abbr",
-    label: "zephaniah",
     versesQtyByChapter: {
       1: 18,
       2: 15,
@@ -1125,16 +1053,12 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   HAG: {
-    abbreviation: "haggai.abbr",
-    label: "haggai",
     versesQtyByChapter: {
       1: 15,
       2: 23,
     },
   },
   ZEC: {
-    abbreviation: "zechariah.abbr",
-    label: "zechariah",
     versesQtyByChapter: {
       1: 21,
       2: 13,
@@ -1153,8 +1077,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   MAL: {
-    abbreviation: "malachi.abbr",
-    label: "malachi",
     versesQtyByChapter: {
       1: 14,
       2: 17,
@@ -1163,8 +1085,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   MT: {
-    abbreviation: "matthew.abbr",
-    label: "matthew",
     versesQtyByChapter: {
       1: 25,
       2: 23,
@@ -1197,8 +1117,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   MK: {
-    abbreviation: "mark.abbr",
-    label: "mark",
     versesQtyByChapter: {
       1: 45,
       2: 28,
@@ -1219,8 +1137,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   LK: {
-    abbreviation: "luke.abbr",
-    label: "luke",
     versesQtyByChapter: {
       1: 80,
       2: 52,
@@ -1249,8 +1165,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JN: {
-    abbreviation: "john.abbr",
-    label: "john",
     versesQtyByChapter: {
       1: 51,
       2: 25,
@@ -1276,8 +1190,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   ACTS: {
-    abbreviation: "acts.abbr",
-    label: "acts",
     versesQtyByChapter: {
       1: 26,
       2: 47,
@@ -1310,8 +1222,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   ROM: {
-    abbreviation: "romans.abbr",
-    label: "romans",
     versesQtyByChapter: {
       1: 32,
       2: 29,
@@ -1332,8 +1242,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1COR": {
-    abbreviation: "1corinthians.abbr",
-    label: "1corinthians",
     versesQtyByChapter: {
       1: 31,
       2: 16,
@@ -1354,8 +1262,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2COR": {
-    abbreviation: "2corinthians.abbr",
-    label: "2corinthians",
     versesQtyByChapter: {
       1: 24,
       2: 17,
@@ -1373,8 +1279,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   GAL: {
-    abbreviation: "galatians.abbr",
-    label: "galatians",
     versesQtyByChapter: {
       1: 24,
       2: 21,
@@ -1385,8 +1289,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   EPH: {
-    abbreviation: "ephesians.abbr",
-    label: "ephesians",
     versesQtyByChapter: {
       1: 23,
       2: 22,
@@ -1397,8 +1299,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   PHIL: {
-    abbreviation: "philippians.abbr",
-    label: "philippians",
     versesQtyByChapter: {
       1: 30,
       2: 30,
@@ -1407,8 +1307,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   COL: {
-    abbreviation: "colossians.abbr",
-    label: "colossians",
     versesQtyByChapter: {
       1: 29,
       2: 23,
@@ -1417,8 +1315,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1THES": {
-    abbreviation: "1thessalonians.abbr",
-    label: "1thessalonians",
     versesQtyByChapter: {
       1: 10,
       2: 20,
@@ -1428,8 +1324,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2THES": {
-    abbreviation: "2thessalonians.abbr",
-    label: "2thessalonians",
     versesQtyByChapter: {
       1: 12,
       2: 17,
@@ -1437,8 +1331,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1TIM": {
-    abbreviation: "1timothy.abbr",
-    label: "1timothy",
     versesQtyByChapter: {
       1: 20,
       2: 15,
@@ -1449,8 +1341,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2TIM": {
-    abbreviation: "2timothy.abbr",
-    label: "2timothy",
     versesQtyByChapter: {
       1: 18,
       2: 26,
@@ -1459,8 +1349,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   TITUS: {
-    abbreviation: "titus.abbr",
-    label: "titus",
     versesQtyByChapter: {
       1: 16,
       2: 15,
@@ -1468,15 +1356,11 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   PHLM: {
-    abbreviation: "philemon.abbr",
-    label: "philemon",
     versesQtyByChapter: {
       1: 25,
     },
   },
   HEB: {
-    abbreviation: "hebrews.abbr",
-    label: "hebrews",
     versesQtyByChapter: {
       1: 14,
       2: 18,
@@ -1494,8 +1378,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   JAS: {
-    abbreviation: "james.abbr",
-    label: "james",
     versesQtyByChapter: {
       1: 27,
       2: 26,
@@ -1505,8 +1387,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1PET": {
-    abbreviation: "1peter.abbr",
-    label: "1peter",
     versesQtyByChapter: {
       1: 25,
       2: 25,
@@ -1516,8 +1396,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2PET": {
-    abbreviation: "2peter.abbr",
-    label: "2peter",
     versesQtyByChapter: {
       1: 21,
       2: 22,
@@ -1525,8 +1403,6 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "1JN": {
-    abbreviation: "1john.abbr",
-    label: "1john",
     versesQtyByChapter: {
       1: 10,
       2: 29,
@@ -1536,29 +1412,21 @@ const books: Record<Bible.Book, Bible.BookDefinition> = {
     },
   },
   "2JN": {
-    abbreviation: "2john.abbr",
-    label: "2john",
     versesQtyByChapter: {
       1: 13,
     },
   },
   "3JN": {
-    abbreviation: "3john.abbr",
-    label: "3john",
     versesQtyByChapter: {
       1: 14,
     },
   },
   JUDE: {
-    abbreviation: "jude.abbr",
-    label: "jude",
     versesQtyByChapter: {
       1: 25,
     },
   },
   REV: {
-    abbreviation: "revelation.abbr",
-    label: "revelation",
     versesQtyByChapter: {
       1: 20,
       2: 29,
