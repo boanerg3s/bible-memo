@@ -1,27 +1,23 @@
-import { Button } from "@/components/button";
 import { AppStyles } from "@/styles";
+import { router } from "expo-router";
+import { useLocale } from "@/hooks/locale";
+import { Button } from "@/components/button";
 import { StyleSheet, Text, View } from "react-native";
 
-export const WelcomePage: React.FC = () => {
+export const PresentationPage: React.FC = () => {
+  const { t } = useLocale("welcome.pages.presentation");
+  const action = () => router.replace("/add-objective");
+
   return (
     <View style={styles.container}>
       <View style={styles.artContainer} />
 
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>
-          Seja bem-vindo ao{"\n"}
-          Bible Memo.
-        </Text>
-
-        <Text style={styles.description}>
-          Você está prestes a iniciar sua jornada de{"\n"}
-          memorização bíblica e nosso desejo é{"\n"}
-          tornar este percurso muito{"\n"}
-          mais prático e rápido.
-        </Text>
+        <Text style={styles.title}>{t("title")}</Text>
+        <Text style={styles.description}>{t("description")}</Text>
       </View>
 
-      <Button action={() => null}>Iniciar</Button>
+      <Button action={action}>{t("action")}</Button>
     </View>
   );
 };

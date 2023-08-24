@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "presentation": {
+      "title": "welcome",
+      "description": "description",
+      "action": "action"
+    }
+  }
+}

@@ -34,7 +34,7 @@ export const useInitialization = () => {
 
   React.useEffect(() => {
     if (isInitialized) {
-      if (isFirstOpen) return router.replace("/welcome");
+      if (isFirstOpen) return router.replace("/presentation");
       return router.replace("/home");
     }
   }, [isInitialized, isFirstOpen]);
