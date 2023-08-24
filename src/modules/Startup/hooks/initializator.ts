@@ -7,9 +7,9 @@ import { useNotificationStore } from "@/stores/notification";
 
 export const useInitialization = () => {
   const [isInitialized, setIsInitialized] = React.useState(false);
-  const { fetchLanguagePreference } = useLanguageStore((state) => state);
   const { objectives, fetchObjectives } = useObjectiveStore((state) => state);
   const { fetchNotificationPreference } = useNotificationStore((state) => state);
+  const { fetchLanguagePreference, initLocalization } = useLanguageStore((state) => state);
 
   const isFirstOpen = React.useMemo(() => {
     return objectives.length === 0;
@@ -17,9 +17,14 @@ export const useInitialization = () => {
 
   const initialize = async () => {
     await initializeDatabase();
-    await fetchLanguagePreference();
-    await fetchNotificationPreference();
-    await fetchObjectives();
+
+    await Promise.all([
+      initLocalization(),
+      fetchObjectives(),
+      fetchLanguagePreference(),
+      fetchNotificationPreference(),
+    ]);
+
     setIsInitialized(true);
   };
 
