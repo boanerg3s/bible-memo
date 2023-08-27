@@ -1,4 +1,20 @@
 {
+  "language": {
+    "en": "Inglês",
+    "pt": "Português"
+  },
+  "version": {
+    "en": {
+      "A": "a",
+      "B": "b",
+      "C": "c"
+    },
+    "pt": {
+      "ARA": "Almeida Revista e Atualizada",
+      "ARC": "Almeida Revista e Corrigida",
+      "NVT": "Nova Versão Transformadora"
+    }
+  },
   "abbreviation": {
     "GN": "GN",
     "EX": "EX",

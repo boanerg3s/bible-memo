@@ -1,10 +1,12 @@
 import _ from "lodash";
 import WelcomeTranslations from "@/modules/Welcome/i18n";
+import ObjectiveTranslations from "@/modules/Objective/i18n";
 import BibleTranslations from "@/modules/Bible/i18n";
 type TranslationsTable = { [e in keyof App.Locale]: App.LocaleDefinition<App.Locale[e]> };
 
 const translations: TranslationsTable = {
   welcome: WelcomeTranslations,
+  objective: ObjectiveTranslations,
   bible: BibleTranslations,
 };
 

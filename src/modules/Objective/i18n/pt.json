@@ -1,0 +1,35 @@
+{
+  "pages": {
+    "add-objective": {
+      "title": "Qual trecho você \ndeseja memorizar?",
+      "description": "Selecione um livro, capítulo e versículo para iniciar seu programa de memorização.",
+      "action": "Continuar"
+    }
+  },
+  "components": {
+    "book-selector": {
+      "title": "Livro",
+      "warning": "Selecione um livro"
+    },
+    "chapter-selector": {
+      "title": "Capítulo",
+      "warning": "Selecione um capítulo"
+    },
+    "verse-from-selector": {
+      "title": "Verso inicial",
+      "warning": "Selecione o verso inicial"
+    },
+    "verse-to-selector": {
+      "title": "Verso final",
+      "warning": "Selecione o verso final"
+    },
+    "language-selector": {
+      "title": "Idioma",
+      "warning": "Selecione um idioma"
+    },
+    "version-selector": {
+      "title": "Versão",
+      "warning": "Selecione uma versão"
+    }
+  }
+}

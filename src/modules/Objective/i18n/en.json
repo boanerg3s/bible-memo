@@ -1,0 +1,35 @@
+{
+  "pages": {
+    "add-objective": {
+      "title": "title",
+      "description": "description",
+      "action": "action"
+    }
+  },
+  "components": {
+    "book-selector": {
+      "title": "title",
+      "warning": "warning"
+    },
+    "chapter-selector": {
+      "title": "title",
+      "warning": "warning"
+    },
+    "verse-from-selector": {
+      "title": "title",
+      "warning": "warning"
+    },
+    "verse-to-selector": {
+      "title": "title",
+      "warning": "warning"
+    },
+    "language-selector": {
+      "title": "title",
+      "warning": "warning"
+    },
+    "version-selector": {
+      "title": "title",
+      "warning": "warning"
+    }
+  }
+}

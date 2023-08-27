@@ -1,4 +1,20 @@
 {
+  "language": {
+    "en": "en",
+    "pt": "pt"
+  },
+  "version": {
+    "en": {
+      "A": "a",
+      "B": "b",
+      "C": "c"
+    },
+    "pt": {
+      "ARA": "ara",
+      "ARC": "arc",
+      "NVT": "nvt"
+    }
+  },
   "abbreviation": {
     "GN": "GN",
     "EX": "EX",
