@@ -25,7 +25,8 @@ export const Tag = (props: TagProps) => {
       fontWeight: "bold",
       textTransform: "uppercase",
       fontSize: AppStyles.fontSize.xs,
-      color: color === "white" ? AppStyles.color.blue : AppStyles.color.white,
+      color:
+        color === "white" ? AppStyles.color.blue : color === "lightGray" ? AppStyles.color.gray : AppStyles.color.white,
     },
   });
 
