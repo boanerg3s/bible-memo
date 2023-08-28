@@ -1,5 +1,7 @@
 import React from "react";
 import { create } from "zustand";
+import { router } from "expo-router";
+import { useObjectiveStore } from "@/stores/objective";
 
 interface BaseAddObjectiveStore {
   book?: Bible.Book;
@@ -18,6 +20,7 @@ interface BaseAddObjectiveStore {
 
 interface AddObjectiveStore extends BaseAddObjectiveStore {
   canContinue: boolean;
+  continueAction: () => void;
 }
 
 // a generic setter to be used in values
@@ -69,6 +72,7 @@ const addObjectiveStore = create<BaseAddObjectiveStore>((set, get) => ({
 
 export const useAddObjectiveStore = (): AddObjectiveStore => {
   const store = addObjectiveStore((state) => state);
+  const newObjective = useObjectiveStore((state) => state.newObjective);
   const { book, chapter, verseFrom, verseTo, language, version } = store;
 
   const canContinue = React.useMemo(() => {
@@ -82,8 +86,24 @@ export const useAddObjectiveStore = (): AddObjectiveStore => {
     );
   }, [book, chapter, verseFrom, verseTo, language, version]);
 
+  const continueAction = async () => {
+    try {
+      if (!book || !chapter || !verseFrom || !verseTo || !language || !version) {
+        throw new Error("Invalid passage configuration");
+      }
+
+      const passage: Bible.Passage = { book, chapter, verseFrom, verseTo, version, language };
+      await newObjective(passage);
+      return router.replace("/home");
+    } catch (error) {
+      error;
+      return router.replace("/");
+    }
+  };
+
   return {
     ...store,
     canContinue,
+    continueAction,
   };
 };

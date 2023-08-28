@@ -1,0 +1,11 @@
+{
+  "components": {
+    "objective-list-header": {
+      "title": "Seus objetivos",
+      "action": "Adicionar trecho"
+    },
+    "objective-list-action": {
+      "action": "Adicione um novo\ntrecho para memorizar"
+    }
+  }
+}

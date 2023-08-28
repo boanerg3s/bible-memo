@@ -6,16 +6,16 @@ import { BookSelector } from "@/modules/Objective/components/book-selector";
 import { predictBibleConfig } from "@/modules/Objective/helpers/add-object";
 import { useAddObjectiveStore } from "@/modules/Objective/stores/add-objective";
 import { ChapterSelector } from "@/modules/Objective/components/chapter-selector";
+import { VersionSelector } from "@/modules/Objective/components/version-selector";
 import { VerseToSelector } from "@/modules/Objective/components/verse-to-selector";
 import { LanguageSelector } from "@/modules/Objective/components/language-selector";
 import { ActivityIndicator, View, Text, StyleSheet, ScrollView } from "react-native";
 import { VerseFromSelector } from "@/modules/Objective/components/verse-from-selector";
-import { VersionSelector } from "../components/version-selector";
 
 export const AddObjective: React.FC = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const { t } = useLocale("objective.pages.add-objective");
-  const { canContinue, setLanguage, setVersion } = useAddObjectiveStore();
+  const { canContinue, continueAction, setLanguage, setVersion } = useAddObjectiveStore();
 
   const loadDefaultValues = async () => {
     const { language, version } = await predictBibleConfig();
@@ -53,7 +53,7 @@ export const AddObjective: React.FC = () => {
         <VersionSelector />
       </ScrollView>
 
-      <Button disabled={!canContinue} action={() => null}>
+      <Button disabled={!canContinue} action={continueAction}>
         {t("action")}
       </Button>
     </View>

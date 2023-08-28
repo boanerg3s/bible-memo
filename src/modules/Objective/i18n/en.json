@@ -31,5 +31,12 @@
       "title": "title",
       "warning": "warning"
     }
+  },
+  "containers": {
+    "objective-list": {
+      "progress": "progress",
+      "memorized": "memorized",
+      "last-seen": "last-seen"
+    }
   }
 }

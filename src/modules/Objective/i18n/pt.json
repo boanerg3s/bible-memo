@@ -31,5 +31,12 @@
       "title": "Versão",
       "warning": "Selecione uma versão"
     }
+  },
+  "containers": {
+    "objective-list": {
+      "progress": "Progresso",
+      "memorized": "Memorizado",
+      "last-seen": "Último visto"
+    }
   }
 }

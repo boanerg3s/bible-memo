@@ -34,6 +34,13 @@ declare namespace App {
           warning: string;
         };
       };
+      containers: {
+        "objective-list": {
+          progress: string;
+          memorized: string;
+          "last-seen": string;
+        };
+      };
     };
   }
 }

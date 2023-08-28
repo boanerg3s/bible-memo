@@ -1,0 +1,11 @@
+{
+  "components": {
+    "objective-list-header": {
+      "title": "title",
+      "action": "action"
+    },
+    "objective-list-action": {
+      "action": "action"
+    }
+  }
+}

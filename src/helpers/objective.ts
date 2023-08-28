@@ -7,10 +7,10 @@ import * as db from "@/services/database";
 export const getObjectives = async (): Promise<App.Objective[]> => {
   const [results] = await db.execute(`select * from objective order by last_seen desc`);
 
-  return results.rows.map<App.Objective>((result) => {
+  return results.rows.map<App.Objective>((result, index) => {
     return {
       id: result.id,
-      lastSeen: false,
+      lastSeen: index === 0,
       progress: result.progress,
       passage: {
         book: result.book,
