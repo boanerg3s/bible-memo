@@ -11,8 +11,9 @@ import { VerseToSelector } from "@/modules/Objective/components/verse-to-selecto
 import { LanguageSelector } from "@/modules/Objective/components/language-selector";
 import { ActivityIndicator, View, Text, StyleSheet, ScrollView } from "react-native";
 import { VerseFromSelector } from "@/modules/Objective/components/verse-from-selector";
+import { WithHeaderNavigation } from "@/components/header-navigation";
 
-export const AddObjective: React.FC = () => {
+const AddObjectivePage: React.FC = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const { t } = useLocale("objective.pages.add-objective");
   const { canContinue, continueAction, setLanguage, setVersion } = useAddObjectiveStore();
@@ -59,6 +60,8 @@ export const AddObjective: React.FC = () => {
     </View>
   );
 };
+
+export const AddObjective = WithHeaderNavigation(AddObjectivePage);
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
