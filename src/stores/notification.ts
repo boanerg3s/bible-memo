@@ -8,7 +8,7 @@ interface NotificationStore {
 }
 
 export const useNotificationStore = create<NotificationStore>((set) => {
-  const defaultNotification: App.Notification = { enabled: true, time: "09:00", when: "every_day" };
+  const defaultNotification: App.Notification = { enabled: false };
 
   const fetchNotificationPreference = async () => {
     const preference = await NotificationHelper.getNotificationPreference();
