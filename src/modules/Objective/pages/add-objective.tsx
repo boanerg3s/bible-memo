@@ -17,10 +17,15 @@ import { VerseFromSelector } from "@/modules/Objective/components/verse-from-sel
 const AddObjectivePage: React.FC = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
   const { t } = useLocale("objective.pages.add-objective");
-  const { canContinue, continueAction, setLanguage, setVersion } = useAddObjectiveStore();
+  const { canContinue, continueAction, ...setters } = useAddObjectiveStore();
+  const { setLanguage, setVersion, setBook, setChapter, setVerseFrom, setVerseTo } = setters;
 
   const loadDefaultValues = async () => {
     const { language, version } = await predictBibleConfig();
+    setBook(undefined);
+    setChapter(undefined);
+    setVerseFrom(undefined);
+    setVerseTo(undefined);
     setLanguage(language);
     version && setVersion(version);
     setIsLoaded(true);

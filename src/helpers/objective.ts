@@ -54,3 +54,22 @@ export const newObjective = async (passage: Bible.Passage): Promise<void> => {
 export const removeObjective = async (id: number): Promise<void> => {
   await db.transact(`delete from objective where id = ?;`, [id]);
 };
+
+/**
+ * Get the equivalent objective given a passage
+ * @param passage
+ * @returns App.Objective or undefined
+ */
+export const getObjectiveByPassage = async (passage: Bible.Passage): Promise<App.Objective | undefined> => {
+  const objectives = await getObjectives();
+
+  return objectives.find(
+    (objective) =>
+      objective.passage.book === passage.book &&
+      objective.passage.chapter === Number(passage.chapter) &&
+      objective.passage.language === passage.language &&
+      objective.passage.verseFrom === Number(passage.verseFrom) &&
+      objective.passage.verseTo === Number(passage.verseTo) &&
+      objective.passage.version === passage.version
+  );
+};

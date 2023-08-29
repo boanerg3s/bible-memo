@@ -6,7 +6,7 @@ interface ObjectiveStore {
   objectives: App.Objective[];
   objectiveOfTheWeek: App.SuggestedObjective;
   fetchObjectives: () => Promise<void>;
-  newObjective: (passage: Bible.Passage) => Promise<void>;
+  newObjective: (passage: Bible.Passage) => Promise<number>;
   removeObjective: (id: number) => Promise<void>;
 }
 
@@ -28,8 +28,15 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
   };
 
   const newObjective = async (passage: Bible.Passage) => {
-    await ObjectiveHelper.newObjective(passage);
-    await fetchObjectives();
+    const equivalentObjective = await ObjectiveHelper.getObjectiveByPassage(passage);
+
+    if (!equivalentObjective) {
+      await ObjectiveHelper.newObjective(passage);
+      const freshEquivalentObjective = await ObjectiveHelper.getObjectiveByPassage(passage);
+      return freshEquivalentObjective!.id;
+    }
+
+    return equivalentObjective!.id;
   };
 
   const removeObjective = async (id: number) => {

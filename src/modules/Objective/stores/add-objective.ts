@@ -10,12 +10,12 @@ interface BaseAddObjectiveStore {
   verseTo?: number;
   language?: Bible.Language;
   version?: Bible.Version;
-  setBook: (value: Bible.Book | ((oldValue?: Bible.Book) => Bible.Book)) => void;
-  setChapter: (value: number | ((oldValue?: number) => number)) => void;
-  setVerseFrom: (value: number | ((oldValue?: number) => number)) => void;
-  setVerseTo: (value: number | ((oldValue?: number) => number)) => void;
-  setLanguage: (value: Bible.Language | ((oldValue?: Bible.Language) => Bible.Language)) => void;
-  setVersion: (value: Bible.Version | ((oldValue?: Bible.Version) => Bible.Version)) => void;
+  setBook: (value?: Bible.Book | ((oldValue?: Bible.Book) => Bible.Book)) => void;
+  setChapter: (value?: number | ((oldValue?: number) => number)) => void;
+  setVerseFrom: (value?: number | ((oldValue?: number) => number)) => void;
+  setVerseTo: (value?: number | ((oldValue?: number) => number)) => void;
+  setLanguage: (value?: Bible.Language | ((oldValue?: Bible.Language) => Bible.Language)) => void;
+  setVersion: (value?: Bible.Version | ((oldValue?: Bible.Version) => Bible.Version)) => void;
 }
 
 interface AddObjectiveStore extends BaseAddObjectiveStore {
@@ -24,7 +24,7 @@ interface AddObjectiveStore extends BaseAddObjectiveStore {
 }
 
 // a generic setter to be used in values
-const genericSetter = <T>(value: T | ((v?: T) => T), oldValue?: T): T => {
+const genericSetter = <T>(value?: T | ((v?: T) => T), oldValue?: T): T | undefined => {
   if (typeof value !== "function") return value;
   const callableValue = value as (v?: T) => T;
   return callableValue(oldValue);
@@ -93,7 +93,11 @@ export const useAddObjectiveStore = (): AddObjectiveStore => {
       }
 
       const passage: Bible.Passage = { book, chapter, verseFrom, verseTo, version, language };
-      await newObjective(passage);
+      const passageId = await newObjective(passage);
+
+      // TODO
+      console.log("new id", passageId);
+
       return router.replace("/home");
     } catch (error) {
       error;
