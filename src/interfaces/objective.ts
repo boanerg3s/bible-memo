@@ -5,4 +5,8 @@ declare namespace App {
     lastSeen: boolean;
     passage: Bible.Passage;
   }
+
+  interface SuggestedObjective {
+    passage: Bible.SuggestedPassage;
+  }
 }

@@ -6,6 +6,9 @@
     },
     "objective-list-action": {
       "action": "Adicione um novo\ntrecho para memorizar"
+    },
+    "objective-suggestion-header": {
+      "title": "Trecho da semana"
     }
   }
 }

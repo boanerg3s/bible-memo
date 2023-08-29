@@ -2,6 +2,8 @@ import React from "react";
 import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
+import { Divider } from "@/components/divider";
+import { WithHeaderNavigation } from "@/components/header-navigation";
 import { BookSelector } from "@/modules/Objective/components/book-selector";
 import { predictBibleConfig } from "@/modules/Objective/helpers/add-object";
 import { useAddObjectiveStore } from "@/modules/Objective/stores/add-objective";
@@ -11,7 +13,6 @@ import { VerseToSelector } from "@/modules/Objective/components/verse-to-selecto
 import { LanguageSelector } from "@/modules/Objective/components/language-selector";
 import { ActivityIndicator, View, Text, StyleSheet, ScrollView } from "react-native";
 import { VerseFromSelector } from "@/modules/Objective/components/verse-from-selector";
-import { WithHeaderNavigation } from "@/components/header-navigation";
 
 const AddObjectivePage: React.FC = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
@@ -49,7 +50,7 @@ const AddObjectivePage: React.FC = () => {
         <ChapterSelector />
         <VerseFromSelector />
         <VerseToSelector />
-        <View style={styles.divider} />
+        <Divider />
         <LanguageSelector />
         <VersionSelector />
       </ScrollView>
@@ -70,5 +71,4 @@ const styles = StyleSheet.create({
   title: { fontSize: AppStyles.fontSize["2xl"], fontWeight: "bold" },
   description: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
   loadingContainer: { flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "white" },
-  divider: { marginTop: 3, height: 1, backgroundColor: AppStyles.color.lightGray },
 });

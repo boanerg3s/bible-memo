@@ -36,7 +36,8 @@
     "objective-list": {
       "progress": "Progresso",
       "memorized": "Memorizado",
-      "last-seen": "Último visto"
+      "last-seen": "Último visto",
+      "not-started": "Não iniciado"
     }
   }
 }

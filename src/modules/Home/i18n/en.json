@@ -6,6 +6,9 @@
     },
     "objective-list-action": {
       "action": "action"
+    },
+    "objective-suggestion-header": {
+      "title": "title"
     }
   }
 }

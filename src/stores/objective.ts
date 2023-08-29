@@ -4,10 +4,21 @@ import * as ObjectiveHelper from "@/helpers/objective";
 interface ObjectiveStore {
   loading: boolean;
   objectives: App.Objective[];
+  objectiveOfTheWeek: App.SuggestedObjective;
   fetchObjectives: () => Promise<void>;
   newObjective: (passage: Bible.Passage) => Promise<void>;
   removeObjective: (id: number) => Promise<void>;
 }
+
+// TODO
+const TEST: App.SuggestedObjective = {
+  passage: {
+    book: "GN",
+    chapter: 1,
+    verseFrom: 1,
+    verseTo: 10,
+  },
+};
 
 export const useObjectiveStore = create<ObjectiveStore>((set) => {
   const fetchObjectives = async () => {
@@ -32,5 +43,6 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
     fetchObjectives,
     newObjective,
     removeObjective,
+    objectiveOfTheWeek: TEST,
   };
 });

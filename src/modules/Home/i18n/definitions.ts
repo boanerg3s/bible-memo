@@ -9,6 +9,9 @@ declare namespace App {
         "objective-list-action": {
           action: string;
         };
+        "objective-suggestion-header": {
+          title: string;
+        };
       };
     };
   }

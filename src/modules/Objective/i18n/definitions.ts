@@ -39,6 +39,7 @@ declare namespace App {
           progress: string;
           memorized: string;
           "last-seen": string;
+          "not-started": string;
         };
       };
     };
