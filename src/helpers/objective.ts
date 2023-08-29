@@ -57,12 +57,14 @@ export const removeObjective = async (id: number): Promise<void> => {
 
 /**
  * Get the equivalent objective given a passage
+ * @param objectives
  * @param passage
  * @returns App.Objective or undefined
  */
-export const getObjectiveByPassage = async (passage: Bible.Passage): Promise<App.Objective | undefined> => {
-  const objectives = await getObjectives();
-
+export const getObjectiveByPassage = async (
+  objectives: App.Objective[],
+  passage: Bible.Passage
+): Promise<App.Objective | undefined> => {
   return objectives.find(
     (objective) =>
       objective.passage.book === passage.book &&

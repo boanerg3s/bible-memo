@@ -5,7 +5,7 @@ interface ObjectiveStore {
   loading: boolean;
   objectives: App.Objective[];
   objectiveOfTheWeek: App.SuggestedObjective;
-  fetchObjectives: () => Promise<void>;
+  fetchObjectives: () => Promise<App.Objective[]>;
   newObjective: (passage: Bible.Passage) => Promise<number>;
   removeObjective: (id: number) => Promise<void>;
 }
@@ -25,18 +25,19 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
     set((state) => ({ ...state, loading: true }));
     const newObjectives = await ObjectiveHelper.getObjectives();
     set((state) => ({ ...state, objectives: newObjectives, loading: false }));
+    return newObjectives;
   };
 
   const newObjective = async (passage: Bible.Passage) => {
-    const equivalentObjective = await ObjectiveHelper.getObjectiveByPassage(passage);
+    const objectives = await fetchObjectives();
+    const equivalentObjective = await ObjectiveHelper.getObjectiveByPassage(objectives, passage);
+    if (equivalentObjective) return equivalentObjective!.id;
 
-    if (!equivalentObjective) {
-      await ObjectiveHelper.newObjective(passage);
-      const freshEquivalentObjective = await ObjectiveHelper.getObjectiveByPassage(passage);
-      return freshEquivalentObjective!.id;
-    }
+    await ObjectiveHelper.newObjective(passage);
 
-    return equivalentObjective!.id;
+    const newObjectives = await fetchObjectives();
+    const newEquivalentObjective = await ObjectiveHelper.getObjectiveByPassage(newObjectives, passage);
+    return newEquivalentObjective!.id;
   };
 
   const removeObjective = async (id: number) => {
