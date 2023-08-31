@@ -5,7 +5,7 @@ const config: ExpoConfig = {
   name: "bible-memo-app",
   slug: "bible-memo-app",
   scheme: "bible-memo-app",
-  version: "1.0.0",
+  version: "0.0.1",
   orientation: "portrait",
   icon: "./assets/icon.png",
   userInterfaceStyle: "light",
@@ -19,6 +19,8 @@ const config: ExpoConfig = {
   experiments: { tsconfigPaths: true },
   plugins: [["expo-updates", { username: "loliveirawebdev" }]],
   extra: { eas: { projectId: "482e8143-154a-4df4-b62e-9f0b58836563" } },
+  updates: { url: "https://u.expo.dev/482e8143-154a-4df4-b62e-9f0b58836563" },
+  runtimeVersion: { policy: "appVersion" },
 };
 
 export default config;
