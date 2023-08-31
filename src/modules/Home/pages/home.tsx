@@ -32,13 +32,15 @@ export const HomePage: React.FC = () => {
         <ObjectiveListAction />
       </View>
 
-      <View style={styles.list}>
-        <Divider />
-      </View>
-
       {__DEV__ && (
-        <View style={styles.list}>
-          <Button action={reset}>Reset Database</Button>
+        <View>
+          <View style={styles.list}>
+            <Divider />
+          </View>
+
+          <View style={styles.list}>
+            <Button action={reset}>Reset Database</Button>
+          </View>
         </View>
       )}
     </ScrollView>
