@@ -2,7 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 import { useTrainingList } from "@/modules/Training/hooks/lists";
 import { TrainingCard } from "@/modules/Training/components/training-card";
 
-export const TrainingList: React.FC = () => {
+interface TrainingListProps {
+  objectiveId: number;
+}
+
+export const TrainingList: React.FC<TrainingListProps> = (props) => {
   const definitions = useTrainingList();
   const keys = Object.keys(definitions) as App.Training[];
 
@@ -14,6 +18,7 @@ export const TrainingList: React.FC = () => {
           trainingKey={key}
           icon={definitions[key].icon}
           title={definitions[key].title}
+          objectiveId={props.objectiveId}
           description={definitions[key].description}
         />
       ))}

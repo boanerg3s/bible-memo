@@ -6,14 +6,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 interface TrainingCardProps {
   title: string;
   description: string;
+  objectiveId: number;
   trainingKey: App.Training;
   icon?: React.ReactElement;
-  objective?: App.Objective;
 }
 
 export const TrainingCard: React.FC<TrainingCardProps> = (props) => {
-  const { trainingKey, title, description, icon, objective } = props;
-  const cardAction = () => console.log("ok", trainingKey);
+  const { trainingKey, title, description, icon, objectiveId } = props;
+  const cardAction = () => console.log("ok", trainingKey, objectiveId);
 
   return (
     <Card>

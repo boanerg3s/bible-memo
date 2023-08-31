@@ -10,10 +10,10 @@ import { TrainingList } from "@/modules/Training/containers/training-list";
 const ViewObjectivePage: React.FC = () => {
   const params = useLocalSearchParams();
   const objectiveId = Number(params.objectiveId);
-  const { passage } = useObjective(objectiveId);
+  const objective = useObjective(objectiveId);
   const { t: tBible } = useLocale("bible.label");
   const { t } = useLocale("objective.pages.view-objective");
-  const { book, chapter, verseFrom, verseTo, version } = passage;
+  const { book, chapter, verseFrom, verseTo, version } = objective.passage;
   const title = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo} (${version})`;
 
   return (
@@ -28,7 +28,7 @@ const ViewObjectivePage: React.FC = () => {
 
         <View style={styles.contentContainer}>
           <Text style={styles.title}>{t("exercises")}</Text>
-          <TrainingList />
+          <TrainingList objectiveId={objectiveId} />
         </View>
       </ScrollView>
     </View>
