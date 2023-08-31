@@ -5,6 +5,7 @@ import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { WithHeaderNavigation } from "@/components/header-navigation";
+import { TrainingList } from "@/modules/Training/containers/training-list";
 
 const ViewObjectivePage: React.FC = () => {
   const params = useLocalSearchParams();
@@ -25,8 +26,9 @@ const ViewObjectivePage: React.FC = () => {
 
         <Divider />
 
-        <View>
+        <View style={styles.contentContainer}>
           <Text style={styles.title}>{t("exercises")}</Text>
+          <TrainingList />
         </View>
       </ScrollView>
     </View>
