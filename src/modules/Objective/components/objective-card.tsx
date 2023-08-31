@@ -15,21 +15,24 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
   const { book, chapter, verseFrom, verseTo } = objective.passage;
   const title = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo}`;
 
-  const renderProgressTag = () => {
-    if ("id" in objective && "progress" in objective) {
-      if (objective.progress === 100) {
-        return <Tag color="green">{t("memorized")}</Tag>;
-      }
+  const renderProgressTag = () => null;
 
-      return (
-        <Tag color="purple">
-          {t("progress")}: {String(objective.progress)}%
-        </Tag>
-      );
-    }
+  // FUNÇÃO PARA RENDERIZAR O PROGRESSO
+  // const renderProgressTag = () => {
+  //   if ("id" in objective && "progress" in objective) {
+  //     if (objective.progress === 100) {
+  //       return <Tag color="green">{t("memorized")}</Tag>;
+  //     }
 
-    return <Tag color="lightGray">{t("not-started")}</Tag>;
-  };
+  //     return (
+  //       <Tag color="purple">
+  //         {t("progress")}: {String(objective.progress)}%
+  //       </Tag>
+  //     );
+  //   }
+
+  //   return <Tag color="lightGray">{t("not-started")}</Tag>;
+  // };
 
   const renderLastSeenTag = () => {
     if ("lastSeen" in objective && objective.lastSeen) {

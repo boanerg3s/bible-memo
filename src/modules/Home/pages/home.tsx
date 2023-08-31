@@ -1,6 +1,5 @@
 import { Divider } from "@/components/divider";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { HeaderIcons } from "@/modules/Home/components/header-icons";
 import { ObjectiveList } from "@/modules/Objective/containers/objective-list";
 import { ObjectiveListHeader } from "@/modules/Home/components/objective-list-header";
 import { ObjectiveListAction } from "@/modules/Home/components/objective-list-action";
@@ -10,10 +9,6 @@ import { ObjectiveSuggestionHeader } from "@/modules/Home/components/objective-s
 export const HomePage: React.FC = () => {
   return (
     <ScrollView>
-      <View style={[styles.icons]}>
-        <HeaderIcons />
-      </View>
-
       <View style={styles.list}>
         <ObjectiveSuggestionHeader />
         <SuggestedObjective />
