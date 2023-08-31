@@ -19,6 +19,8 @@ const config: ExpoConfig = {
   experiments: { tsconfigPaths: true },
   plugins: [["expo-updates", { username: "loliveirawebdev" }]],
   extra: { eas: { projectId: "482e8143-154a-4df4-b62e-9f0b58836563" } },
+  updates: { url: "https://u.expo.dev/482e8143-154a-4df4-b62e-9f0b58836563" },
+  runtimeVersion: { policy: "appVersion" },
 };
 
 export default config;
