@@ -72,8 +72,8 @@ export const AddObjective = WithHeaderNavigation(AddObjectivePage);
 const styles = StyleSheet.create({
   container: { flex: 1 },
   headerContainer: { flexDirection: "column", gap: 5 },
-  innerContainer: { flexDirection: "column", gap: 20, padding: 20 },
   title: { fontSize: AppStyles.fontSize["2xl"], fontWeight: "bold" },
   description: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
+  innerContainer: { flexDirection: "column", gap: 20, paddingHorizontal: 20, paddingBottom: 20 },
   loadingContainer: { flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "white" },
 });
