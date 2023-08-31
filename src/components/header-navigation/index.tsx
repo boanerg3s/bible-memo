@@ -31,5 +31,5 @@ export const WithHeaderNavigation = <T extends object>(WrappedComponent: React.C
 const styles = StyleSheet.create({
   container: { flex: 1 },
   safeArea: { flex: 1, paddingTop: 20 },
-  header: { height: 48, paddingHorizontal: 20, justifyContent: "center" },
+  header: { height: 48, paddingHorizontal: 16, justifyContent: "center" },
 });

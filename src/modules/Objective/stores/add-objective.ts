@@ -93,12 +93,10 @@ export const useAddObjectiveStore = (): AddObjectiveStore => {
       }
 
       const passage: Bible.Passage = { book, chapter, verseFrom, verseTo, version, language };
-      const passageId = await newObjective(passage);
+      const objectiveId = await newObjective(passage);
 
-      // TODO
-      console.log("new id", passageId);
-
-      return router.replace("/home");
+      router.replace("/home");
+      return router.push({ pathname: "/view-objective", params: { objectiveId: objectiveId } });
     } catch (error) {
       error;
       return router.replace("/");

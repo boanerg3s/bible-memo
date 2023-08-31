@@ -11,3 +11,10 @@ declare namespace Bible {
     version: Bible.Version;
   }
 }
+
+declare namespace App {
+  interface BibleVerse {
+    number: number;
+    text: string;
+  }
+}
