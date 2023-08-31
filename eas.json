@@ -1,11 +1,9 @@
 {
   "build": {
     "production": {
-      "channel": "production",
       "developmentClient": false
     },
     "preview": {
-      "channel": "staging",
       "developmentClient": false,
       "distribution": "internal",
       "ios": { "enterpriseProvisioning": "adhoc" }
