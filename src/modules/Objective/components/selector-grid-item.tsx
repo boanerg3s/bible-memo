@@ -47,7 +47,9 @@ export const SelectorGridItem = React.forwardRef<SelectorGridItemRef, SelectorGr
   return (
     <TouchableOpacity style={commonStyles.itemContainer} onPress={onPress}>
       <View style={styles.innerItemContainer}>
-        <Text style={[styles.itemLabel, color]}>{label}</Text>
+        <Text numberOfLines={1} style={[styles.itemLabel, color]}>
+          {label}
+        </Text>
       </View>
     </TouchableOpacity>
   );

@@ -10,9 +10,19 @@
       "C": "c"
     },
     "ptbr": {
-      "ARA": "ara",
-      "ARC": "arc",
-      "NVT": "nvt"
+      "ARA": "ARA",
+      "ARC": "ARC",
+      "NVT": "NVT",
+      "ACF": "ACF",
+      "AS21": "AS21",
+      "JFAA": "JFAA",
+      "KJA": "KJA",
+      "KJF": "KJF",
+      "NAA": "NAA",
+      "NBV": "NBV",
+      "NTLH": "NTLH",
+      "NVI": "NVI",
+      "TB": "TB"
     }
   },
   "abbreviation": {

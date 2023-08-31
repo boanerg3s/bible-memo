@@ -16,7 +16,7 @@ export const useVersionSelector = () => {
         key: version,
         ref: React.createRef(),
         isActive: version === chosenVersion,
-        label: `${t(`${language}.${version}`)} (${version})`,
+        label: `(${version}) ${t(`${language}.${version}`)}`,
       };
     });
   }, [language]);

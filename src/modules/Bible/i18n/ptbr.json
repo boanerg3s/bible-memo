@@ -12,7 +12,17 @@
     "ptbr": {
       "ARA": "Almeida Revista e Atualizada",
       "ARC": "Almeida Revista e Corrigida",
-      "NVT": "Nova Versão Transformadora"
+      "NVT": "Nova Versão Transformadora",
+      "ACF": "Almeida Corrigida Fiel",
+      "AS21": "Almeida Século 21",
+      "JFAA": "João Ferreira de Almeida Atualizada",
+      "KJA": "King James Atualizada",
+      "KJF": "King James Fiel",
+      "NAA": "Nova Almeida Atualizada",
+      "NBV": "Nova Bíblia Viva",
+      "NTLH": "Nova Tradução na Linguagem de Hoje e Amanha também",
+      "NVI": "Nova Versão Internacional",
+      "TB": "Tradução Brasileira"
     }
   },
   "abbreviation": {
