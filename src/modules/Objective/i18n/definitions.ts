@@ -7,6 +7,10 @@ declare namespace App {
           description: string;
           action: string;
         };
+        "view-objective": {
+          headline: string;
+          exercises: string;
+        };
       };
       components: {
         "book-selector": {

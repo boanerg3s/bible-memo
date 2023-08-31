@@ -4,6 +4,10 @@
       "title": "Qual trecho você \ndeseja memorizar?",
       "description": "Selecione um livro, capítulo e versículo para iniciar seu programa de memorização.",
       "action": "Continuar"
+    },
+    "view-objective": {
+      "headline": "Você está memorizando:",
+      "exercises": "Exercícios"
     }
   },
   "components": {

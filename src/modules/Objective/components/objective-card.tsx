@@ -1,3 +1,4 @@
+import { router } from "expo-router";
 import { AppStyles } from "@/styles";
 import { Tag } from "@/components/tag";
 import { Card } from "@/components/card";
@@ -45,7 +46,7 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
   // TODO
   const cardAction = () => {
     if ("id" in objective && "progress" in objective) {
-      console.log("abre o objetivo");
+      router.push({ pathname: "/view-objective", params: { objectiveId: objective.id } });
       return;
     }
 

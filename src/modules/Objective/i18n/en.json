@@ -4,6 +4,10 @@
       "title": "title",
       "description": "description",
       "action": "action"
+    },
+    "view-objective": {
+      "headline": "headline",
+      "exercises": "exercises"
     }
   },
   "components": {
