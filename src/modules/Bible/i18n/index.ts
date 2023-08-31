@@ -1,5 +1,5 @@
 import en from "@/modules/Bible/i18n/en.json";
-import pt from "@/modules/Bible/i18n/pt.json";
+import ptbr from "@/modules/Bible/i18n/ptbr.json";
 
-const definition: App.LocaleDefinition<App.Locale["bible"]> = { en, pt };
+const definition: App.LocaleDefinition<App.Locale["bible"]> = { en, ptbr };
 export default definition;

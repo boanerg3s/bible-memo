@@ -9,9 +9,13 @@ import { getPreference, savePreference } from "@/helpers/preference";
 export const getDefaultUserLanguage = (): App.Language => {
   const translations = getTranslations();
   const locales = Localization.getLocales();
-  const defaultLocale = locales[0].languageCode as any;
+  const defaultBaseLocale = locales[0].languageCode as any;
+  const defaultLocale = locales[0].languageTag.replace("-", "").toLowerCase() as any;
   const availableLocales = Object.keys(translations) as App.Language[];
-  return availableLocales.includes(defaultLocale) ? defaultLocale : "en";
+
+  const locale = availableLocales.includes(defaultLocale) ? defaultLocale : null;
+  const baseLocale = availableLocales.includes(defaultBaseLocale) ? defaultBaseLocale : null;
+  return locale || baseLocale || "en";
 };
 
 /**

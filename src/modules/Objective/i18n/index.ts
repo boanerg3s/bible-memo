@@ -1,5 +1,5 @@
 import en from "@/modules/Objective/i18n/en.json";
-import pt from "@/modules/Objective/i18n/pt.json";
+import ptbr from "@/modules/Objective/i18n/ptbr.json";
 
-const definition: App.LocaleDefinition<App.Locale["objective"]> = { en, pt };
+const definition: App.LocaleDefinition<App.Locale["objective"]> = { en, ptbr };
 export default definition;

@@ -4,7 +4,7 @@ const languages: Bible.VersionList<{ isFavorite: boolean }> = {
     B: { isFavorite: true },
     C: { isFavorite: false },
   },
-  pt: {
+  ptbr: {
     ARA: { isFavorite: false },
     ARC: { isFavorite: false },
     NVT: { isFavorite: true },

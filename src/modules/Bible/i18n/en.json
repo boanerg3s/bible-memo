@@ -1,7 +1,7 @@
 {
   "language": {
     "en": "en",
-    "pt": "pt"
+    "ptbr": "ptbr"
   },
   "version": {
     "en": {
@@ -9,7 +9,7 @@
       "B": "b",
       "C": "c"
     },
-    "pt": {
+    "ptbr": {
       "ARA": "ara",
       "ARC": "arc",
       "NVT": "nvt"
