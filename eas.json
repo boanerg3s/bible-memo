@@ -12,7 +12,7 @@
     },
     "develop": {
       "channel": "develop",
-      "developmentClient": false,
+      "developmentClient": true,
       "distribution": "internal",
       "ios": { "enterpriseProvisioning": "adhoc" }
     }
