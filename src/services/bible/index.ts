@@ -7,10 +7,10 @@ export const getPassageContent = async (passage: Bible.Passage): Promise<App.Bib
     const version = passage.version.toUpperCase();
     const book = passage.book.toUpperCase();
     const endpoint = `${host}/${language}/${version}/${book}/${passage.chapter}.json`;
-
     const { data } = await axios.get<App.BibleVerse[]>(endpoint);
     return data.filter(({ number }) => number >= passage.verseFrom && number <= passage.verseTo);
-  } catch {
+  } catch (err) {
+    console.error(err);
     return null;
   }
 };

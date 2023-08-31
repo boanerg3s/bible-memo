@@ -1,0 +1,20 @@
+{
+  "build": {
+    "production": {
+      "channel": "production",
+      "developmentClient": false
+    },
+    "preview": {
+      "channel": "staging",
+      "developmentClient": false,
+      "distribution": "internal",
+      "ios": { "enterpriseProvisioning": "adhoc" }
+    },
+    "development": {
+      "channel": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "ios": { "enterpriseProvisioning": "adhoc" }
+    }
+  }
+}
