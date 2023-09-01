@@ -56,7 +56,7 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
       return;
     }
 
-    console.log("adiciona aos objetivos");
+    router.push("/add-suggested-objective");
     return;
   };
 

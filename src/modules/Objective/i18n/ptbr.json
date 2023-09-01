@@ -5,6 +5,11 @@
       "description": "Selecione um livro, capítulo e versículo para iniciar seu programa de memorização.",
       "action": "Continuar"
     },
+    "add-suggested-objective": {
+      "title": "Você selecionou o trecho \nda semana para memorizar",
+      "description": "Confirme seu idioma e versão de \npreferência para continuar",
+      "action": "Continuar"
+    },
     "view-objective": {
       "headline": "Você está memorizando:",
       "exercises": "Exercícios"

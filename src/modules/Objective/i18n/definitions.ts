@@ -7,6 +7,11 @@ declare namespace App {
           description: string;
           action: string;
         };
+        "add-suggested-objective": {
+          title: string;
+          description: string;
+          action: string;
+        };
         "view-objective": {
           headline: string;
           exercises: string;

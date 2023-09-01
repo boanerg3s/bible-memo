@@ -3,30 +3,31 @@ import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
+import { useCardContent } from "@/modules/Objective/hooks/card";
 import { FullPageLoading } from "@/components/full-page-loading";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { WithHeaderNavigation } from "@/components/header-navigation";
-import { BookSelector } from "@/modules/Objective/components/book-selector";
+import { useSuggestedObjective } from "@/modules/Objective/hooks/lists";
 import { predictBibleConfig } from "@/modules/Objective/helpers/add-object";
 import { useAddObjectiveStore } from "@/modules/Objective/stores/add-objective";
-import { ChapterSelector } from "@/modules/Objective/components/chapter-selector";
 import { VersionSelector } from "@/modules/Objective/components/version-selector";
-import { VerseToSelector } from "@/modules/Objective/components/verse-to-selector";
 import { LanguageSelector } from "@/modules/Objective/components/language-selector";
-import { VerseFromSelector } from "@/modules/Objective/components/verse-from-selector";
 
-const AddObjectivePage: React.FC = () => {
+const AddSuggestedObjectivePage: React.FC = () => {
   const [isLoaded, setIsLoaded] = React.useState(false);
-  const { t } = useLocale("objective.pages.add-objective");
+
+  const objective = useSuggestedObjective();
+  const { t } = useLocale("objective.pages.add-suggested-objective");
   const { canContinue, continueAction, ...setters } = useAddObjectiveStore();
   const { setLanguage, setVersion, setBook, setChapter, setVerseFrom, setVerseTo } = setters;
+  const { fetchPassageContent, content, isContentLoading } = useCardContent(objective.passage);
 
   const loadDefaultValues = async () => {
     const { language, version } = await predictBibleConfig();
-    setBook(undefined);
-    setChapter(undefined);
-    setVerseFrom(undefined);
-    setVerseTo(undefined);
+    setBook(objective.passage.book);
+    setChapter(objective.passage.chapter);
+    setVerseFrom(objective.passage.verseFrom);
+    setVerseTo(objective.passage.verseTo);
     setLanguage(language);
     version && setVersion(version);
     setIsLoaded(true);
@@ -34,9 +35,10 @@ const AddObjectivePage: React.FC = () => {
 
   React.useEffect(() => {
     loadDefaultValues();
+    fetchPassageContent();
   }, []);
 
-  if (!isLoaded) {
+  if (!isLoaded || isContentLoading) {
     return <FullPageLoading />;
   }
 
@@ -44,15 +46,18 @@ const AddObjectivePage: React.FC = () => {
     <View style={styles.container}>
       <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.innerContainer} nestedScrollEnabled={true}>
         <View style={styles.headerContainer}>
-          <Text style={styles.title}>{t("title")}</Text>
-          <Text style={styles.description}>{t("description")}</Text>
+          <Text style={styles.headline}>{t("title")}:</Text>
+          <Text style={styles.title}>Salmos 1:1</Text>
+
+          <Text numberOfLines={3} style={styles.description}>
+            {content}
+          </Text>
         </View>
 
-        <BookSelector />
-        <ChapterSelector />
-        <VerseFromSelector />
-        <VerseToSelector />
         <Divider />
+
+        <Text style={styles.description}>{t("description")}:</Text>
+
         <LanguageSelector />
         <VersionSelector />
       </ScrollView>
@@ -64,12 +69,18 @@ const AddObjectivePage: React.FC = () => {
   );
 };
 
-export const AddObjective = WithHeaderNavigation(AddObjectivePage);
+export const AddSuggestedObjective = WithHeaderNavigation(AddSuggestedObjectivePage);
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  headerContainer: { flexDirection: "column", gap: 5 },
+  headerContainer: { flexDirection: "column", gap: 10 },
   title: { fontSize: AppStyles.fontSize["2xl"], fontWeight: "bold" },
+  headline: {
+    fontSize: AppStyles.fontSize.sm,
+    textTransform: "uppercase",
+    color: AppStyles.color.gray,
+    fontWeight: "bold",
+  },
   description: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
   innerContainer: { flexDirection: "column", gap: 20, paddingHorizontal: 20, paddingBottom: 20 },
   loadingContainer: { flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "white" },
