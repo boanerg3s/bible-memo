@@ -1,6 +1,7 @@
 import _ from "lodash";
 import HomeTranslations from "@/modules/Home/i18n";
 import BibleTranslations from "@/modules/Bible/i18n";
+import ErrorTranslations from "@/modules/Error/i18n";
 import WelcomeTranslations from "@/modules/Welcome/i18n";
 import TrainingTranslations from "@/modules/Training/i18n";
 import ObjectiveTranslations from "@/modules/Objective/i18n";
@@ -12,6 +13,7 @@ const translations: TranslationsTable = {
   bible: BibleTranslations,
   home: HomeTranslations,
   training: TrainingTranslations,
+  error: ErrorTranslations,
 };
 
 export const getTranslations = (): Record<App.Language, App.Locale> => {

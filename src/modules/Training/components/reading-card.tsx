@@ -18,5 +18,5 @@ export const ReadingCard: React.FC<{ verse: App.BibleVerse }> = (props) => {
 const styles = StyleSheet.create({
   container: { padding: 20, flexDirection: "row" },
   number: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
-  text: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.black },
+  text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black },
 });

@@ -33,7 +33,7 @@ export const TrainingCard: React.FC<TrainingCardProps> = (props) => {
 
 const styles = StyleSheet.create({
   innerCard: { padding: 20, gap: 10 },
-  preview: { color: AppStyles.color.gray },
+  preview: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
   cardTitle: { fontSize: AppStyles.fontSize.base, fontWeight: "bold" },
   horizontalContainer: { flexDirection: "row", gap: 5, alignItems: "center" },
   cardTitleAppend: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray, fontWeight: "bold" },

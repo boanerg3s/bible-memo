@@ -3,6 +3,7 @@ import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
+import { FullPageLoading } from "@/components/full-page-loading";
 import { WithHeaderNavigation } from "@/components/header-navigation";
 import { BookSelector } from "@/modules/Objective/components/book-selector";
 import { predictBibleConfig } from "@/modules/Objective/helpers/add-object";
@@ -36,11 +37,7 @@ const AddObjectivePage: React.FC = () => {
   }, []);
 
   if (!isLoaded) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size={24} color={AppStyles.color.blue} />
-      </View>
-    );
+    return <FullPageLoading />;
   }
 
   return (

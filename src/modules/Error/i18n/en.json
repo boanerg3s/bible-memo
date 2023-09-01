@@ -1,0 +1,9 @@
+{
+  "containers": {
+    "simple-error": {
+      "title": "title",
+      "description": "description",
+      "action": "action"
+    }
+  }
+}

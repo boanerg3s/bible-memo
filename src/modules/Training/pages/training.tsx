@@ -5,14 +5,16 @@ import { useLocalSearchParams } from "expo-router";
 import { usePassageContent } from "@/hooks/passage";
 import { useObjectiveStore } from "@/stores/objective";
 import { BookBackground } from "@/components/book-background";
+import { FullPageLoading } from "@/components/full-page-loading";
+import { SimpleError } from "@/modules/Error/containers/simple-error";
 import { WithHeaderNavigation } from "@/components/header-navigation";
 import { ReadingCard } from "@/modules/Training/components/reading-card";
 import { FragmentsCard } from "@/modules/Training/components/fragments-card";
 import { ShuffleButton } from "@/modules/Training/components/shuffle-button";
 import { FirstLetterCard } from "@/modules/Training/components/first-letter-card";
+import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { TrainingHeaderAppend } from "@/modules/Training/components/training-header-append";
 import { TrainingContentPrepend } from "@/modules/Training/components/training-content-prepend";
-import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const TRAINING_MODES: Record<App.Training, React.ComponentType<{ verse: App.BibleVerse }>> = {
   READING: ReadingCard,
@@ -44,20 +46,11 @@ export const TrainingPage: React.FC = () => {
   }, []);
 
   if (isContentLoading || loading) {
-    return (
-      <View style={styles.fullPageContainer}>
-        <ActivityIndicator size={32} color={AppStyles.color.blue} />
-      </View>
-    );
+    return <FullPageLoading />;
   }
 
-  // TODO
   if (!content) {
-    return (
-      <View style={styles.fullPageContainer}>
-        <Text>Ops...</Text>
-      </View>
-    );
+    return <SimpleError />;
   }
 
   return (

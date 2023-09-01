@@ -1,0 +1,9 @@
+{
+  "containers": {
+    "simple-error": {
+      "title": "Ops...",
+      "description": "Infelizmente algum problema aconteceu",
+      "action": "Voltar"
+    }
+  }
+}

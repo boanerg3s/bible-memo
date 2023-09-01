@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
   container: { padding: 20, flexDirection: "row", flexWrap: "wrap", gap: 10 },
   number: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
   textContainer: { flexDirection: "row", gap: 2 },
-  text: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.black },
+  text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black },
   hiddenTextContainer: { backgroundColor: AppStyles.color.black },
 });
