@@ -5,6 +5,7 @@ import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { WithHeaderNavigation } from "@/components/header-navigation";
+import { ProgressBar } from "@/modules/Objective/components/progress-bar";
 import { TrainingList } from "@/modules/Training/containers/training-list";
 
 const ViewObjectivePage: React.FC = () => {
@@ -27,6 +28,12 @@ const ViewObjectivePage: React.FC = () => {
         <Divider />
 
         <View style={styles.contentContainer}>
+          <ProgressBar percentage={objective.progress} />
+        </View>
+
+        <Divider />
+
+        <View style={styles.contentContainer}>
           <Text style={styles.title}>{t("exercises")}</Text>
           <TrainingList objectiveId={objectiveId} />
         </View>
@@ -43,6 +50,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     gap: 5,
+    paddingHorizontal: 20,
     flexDirection: "column",
   },
   title: {
@@ -59,7 +67,6 @@ const styles = StyleSheet.create({
   innerContainer: {
     gap: 20,
     paddingBottom: 20,
-    paddingHorizontal: 20,
     flexDirection: "column",
   },
   loadingContainer: {

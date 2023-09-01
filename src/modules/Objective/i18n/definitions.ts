@@ -37,6 +37,10 @@ declare namespace App {
           title: string;
           warning: string;
         };
+        "progress-bar": {
+          "your-progress": string;
+          action: string;
+        };
       };
       containers: {
         "objective-list": {
