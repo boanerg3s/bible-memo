@@ -13,5 +13,10 @@
     "READING": "READING",
     "FRAGMENTS": "FRAGMENTS",
     "FIRST_LETTER": "FIRST_LETTER"
+  },
+  "components": {
+    "shuffle-button": {
+      "action": "action"
+    }
   }
 }

@@ -5,7 +5,7 @@ import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "rea
 
 export const Button = (props: ButtonProps) => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const { grow = true, rounded = false, size = "large", type = "primary", disabled = false } = props;
+  const { grow = true, rounded = false, size = "large", type = "primary", disabled = false, append } = props;
 
   const onPress = async () => {
     if (disabled) return;
@@ -21,9 +21,11 @@ export const Button = (props: ButtonProps) => {
       flexDirection: "row",
     },
     container: {
+      gap: 10,
       width: "auto",
       flex: grow ? 1 : 0,
       alignItems: "center",
+      flexDirection: "row",
       paddingHorizontal: 10,
       justifyContent: "center",
       height: size === "large" ? 48 : 36,
@@ -50,6 +52,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.touchable}>
       <View style={styles.container}>
+        {append && append}
         <Text style={styles.label}>{props.children}</Text>
 
         <ActivityIndicator

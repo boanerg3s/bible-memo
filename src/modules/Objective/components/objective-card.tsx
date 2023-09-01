@@ -9,7 +9,7 @@ import { Tag } from "@/components/tag";
 import { Card } from "@/components/card";
 import { Skeleton } from "moti/skeleton";
 import { useLocale } from "@/hooks/locale";
-import { usePassageContent } from "@/modules/Objective/hooks/card";
+import { useCardContent } from "@/modules/Objective/hooks/card";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 type SuggestedObjectiveCardProps = { objective: App.SuggestedObjective };
@@ -22,27 +22,26 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
   const { t } = useLocale("objective.containers.objective-list");
   const { book, chapter, verseFrom, verseTo } = objective.passage;
   const title = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo}`;
-  const { fetchPassageContent, content, isContentLoading } = usePassageContent(objective.passage);
+  const { fetchPassageContent, content, isContentLoading } = useCardContent(objective.passage);
 
   React.useEffect(() => {
     fetchPassageContent();
   }, [fetchPassageContent]);
 
   const renderProgressTag = () => {
-    //   if ("id" in objective && "progress" in objective) {
-    //     if (objective.progress === 100) {
-    //       return <Tag color="green">{t("memorized")}</Tag>;
-    //     }
+    if ("id" in objective && "progress" in objective) {
+      if (objective.progress === 100) {
+        return <Tag color="green">{t("memorized")}</Tag>;
+      }
 
-    //     return (
-    //       <Tag color="purple">
-    //         {t("progress")}: {String(objective.progress)}%
-    //       </Tag>
-    //     );
-    //   }
+      return (
+        <Tag color="purple">
+          {t("progress")}: {String(objective.progress)}%
+        </Tag>
+      );
+    }
 
-    //   return <Tag color="lightGray">{t("not-started")}</Tag>;
-    return null;
+    return <Tag color="lightGray">{t("not-started")}</Tag>;
   };
 
   const renderLastSeenTag = () => {

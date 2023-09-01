@@ -6,4 +6,5 @@ export interface ButtonProps {
   size?: "large" | "small";
   type?: "primary" | "secondary";
   disabled?: boolean;
+  append?: React.ReactElement;
 }

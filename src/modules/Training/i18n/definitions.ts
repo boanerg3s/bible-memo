@@ -4,6 +4,11 @@ declare namespace App {
       title: Record<App.Training, string>;
       description: Record<App.Training, string>;
       tip: Record<App.Training, string>;
+      components: {
+        "shuffle-button": {
+          action: string;
+        };
+      };
     };
   }
 }

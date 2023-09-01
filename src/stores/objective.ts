@@ -8,6 +8,7 @@ interface ObjectiveStore {
   fetchObjectives: () => Promise<App.Objective[]>;
   newObjective: (passage: Bible.Passage) => Promise<number>;
   removeObjective: (id: number) => Promise<void>;
+  updateLastSeen: (id: number) => Promise<void>;
 }
 
 // TODO
@@ -45,12 +46,18 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
     await fetchObjectives();
   };
 
+  const updateLastSeen = async (id: number) => {
+    await ObjectiveHelper.updateLastSeen(id);
+    await fetchObjectives();
+  };
+
   return {
     objectives: [],
     loading: false,
     fetchObjectives,
     newObjective,
     removeObjective,
+    updateLastSeen,
     objectiveOfTheWeek: TEST,
   };
 });

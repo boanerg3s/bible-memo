@@ -56,6 +56,16 @@ export const removeObjective = async (id: number): Promise<void> => {
 };
 
 /**
+ * Update the last seen property for an objective
+ * @param objectiveId
+ */
+export const updateLastSeen = async (objectiveId: number): Promise<void> => {
+  const query = `update objective set last_seen = datetime('now') where id = ?`;
+  const params = [objectiveId];
+  await db.transact(query, params);
+};
+
+/**
  * Get the equivalent objective given a passage
  * @param objectives
  * @param passage

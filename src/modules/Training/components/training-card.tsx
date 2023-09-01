@@ -13,7 +13,7 @@ interface TrainingCardProps {
 
 export const TrainingCard: React.FC<TrainingCardProps> = (props) => {
   const { trainingKey, title, description, icon, objectiveId } = props;
-  const cardAction = () => console.log("ok", trainingKey, objectiveId);
+  const cardAction = () => router.push({ pathname: "/training", params: { trainingKey, objectiveId } });
 
   return (
     <Card>
