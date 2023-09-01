@@ -8,6 +8,10 @@ declare namespace App {
         "shuffle-button": {
           action: string;
         };
+        "training-content-prepend": {
+          "your-progress": string;
+          action: string;
+        };
       };
     };
   }

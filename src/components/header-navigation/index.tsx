@@ -1,12 +1,15 @@
 import { router } from "expo-router";
-import { ArrowLeft } from "react-native-feather";
-import { StyleSheet, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { AppStyles } from "@/styles";
+import { StyleSheet, View } from "react-native";
+import { ArrowLeft } from "react-native-feather";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export const WithHeaderNavigation = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
-  HeaderAppend?: React.ComponentType<T>
+  options?: {
+    HeaderAppend?: React.ComponentType<any>;
+    ContentPrepend?: React.ComponentType<any>;
+  }
 ) => {
   return (props: T) => {
     if (!router.canGoBack()) {
@@ -24,9 +27,10 @@ export const WithHeaderNavigation = <T extends object>(
             <ArrowLeft stroke={AppStyles.color.gray} />
           </TouchableOpacity>
 
-          {HeaderAppend && <HeaderAppend {...props} />}
+          {options?.HeaderAppend && <options.HeaderAppend {...props} />}
         </View>
 
+        {options?.ContentPrepend && <options.ContentPrepend {...props} />}
         <WrappedComponent {...props} />
       </View>
     );

@@ -1,7 +1,5 @@
 import React from "react";
 import { AppStyles } from "@/styles";
-import { useLocale } from "@/hooks/locale";
-import { Info, RefreshCcw } from "react-native-feather";
 import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { usePassageContent } from "@/hooks/passage";
@@ -11,7 +9,9 @@ import { ReadingCard } from "@/modules/Training/components/reading-card";
 import { FragmentsCard } from "@/modules/Training/components/fragments-card";
 import { ShuffleButton } from "@/modules/Training/components/shuffle-button";
 import { FirstLetterCard } from "@/modules/Training/components/first-letter-card";
-import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
+import { TrainingHeaderAppend } from "@/modules/Training/components/training-header-append";
+import { TrainingContentPrepend } from "@/modules/Training/components/training-content-prepend";
 
 const TRAINING_MODES: Record<App.Training, React.ComponentType<{ verse: App.BibleVerse }>> = {
   READING: ReadingCard,
@@ -23,28 +23,6 @@ const MODES_CAN_SHUFFLE: Record<App.Training, boolean> = {
   READING: false,
   FRAGMENTS: true,
   FIRST_LETTER: false,
-};
-
-const TraningPageHeaderAppend: React.FC = () => {
-  const params = useLocalSearchParams();
-  const objective = useObjective(Number(params.objectiveId));
-
-  const { t: tBible } = useLocale("bible.label");
-  const { t } = useLocale("training");
-  const { book, chapter, verseFrom, verseTo, version } = objective.passage;
-  const title = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo} (${version})`;
-
-  return (
-    <View style={styles.headerContainer}>
-      <Text style={styles.headerTitle}>{title}</Text>
-      <Text style={styles.headerSeparator}>•</Text>
-
-      <TouchableOpacity style={styles.trainingKeyContainer}>
-        <Text style={styles.headerMode}>{t(`title.${params.trainingKey}`)}</Text>
-        <Info width={16} stroke={AppStyles.color.gray} strokeWidth={3} />
-      </TouchableOpacity>
-    </View>
-  );
 };
 
 export const TrainingPage: React.FC = () => {
@@ -100,14 +78,12 @@ export const TrainingPage: React.FC = () => {
   );
 };
 
-export const Training = WithHeaderNavigation(TrainingPage, TraningPageHeaderAppend);
+export const Training = WithHeaderNavigation(TrainingPage, {
+  HeaderAppend: TrainingHeaderAppend,
+  ContentPrepend: TrainingContentPrepend,
+});
 
 const styles = StyleSheet.create({
-  headerContainer: { flexDirection: "row", gap: 10, alignItems: "center" },
-  trainingKeyContainer: { flexDirection: "row", gap: 5, alignItems: "center" },
-  headerTitle: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.black, fontWeight: "bold" },
-  headerSeparator: { color: AppStyles.color.gray },
-  headerMode: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
   listContainer: { flex: 1, paddingHorizontal: 20, paddingTop: 10, paddingBottom: 20, gap: 10 },
   fullPageContainer: { flex: 1, alignItems: "center", justifyContent: "center" },
 });

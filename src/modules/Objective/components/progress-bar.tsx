@@ -1,7 +1,7 @@
 import { AppStyles } from "@/styles";
+import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { StyleSheet, Text, View } from "react-native";
-import { useLocale } from "@/hooks/locale";
 
 interface ProgressBarProps {
   percentage: number;

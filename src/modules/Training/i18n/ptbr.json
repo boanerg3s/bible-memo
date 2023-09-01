@@ -17,6 +17,10 @@
   "components": {
     "shuffle-button": {
       "action": "Embaralhar"
+    },
+    "training-content-prepend": {
+      "your-progress": "Seu progresso neste trecho",
+      "action": "Avaliar memória"
     }
   }
 }

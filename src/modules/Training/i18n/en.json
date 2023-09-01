@@ -17,6 +17,10 @@
   "components": {
     "shuffle-button": {
       "action": "action"
+    },
+    "training-content-prepend": {
+      "your-progress": "your-progress",
+      "action": "action"
     }
   }
 }
