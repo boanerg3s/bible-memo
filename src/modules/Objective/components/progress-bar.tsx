@@ -14,7 +14,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
     <View style={styles.container}>
       <View style={styles.barContainer}>
         <Text style={styles.caption}>
-          {t("your-progress")} <Text style={{ color: AppStyles.color.green }}>{props.percentage}%</Text>
+          {t("your-progress")}: <Text style={{ color: AppStyles.color.green }}>{props.percentage}%</Text>
         </Text>
 
         <View style={styles.bar}>

@@ -4,14 +4,15 @@ import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { usePassageContent } from "@/hooks/passage";
 import { useObjectiveStore } from "@/stores/objective";
+import { BookBackground } from "@/components/book-background";
 import { WithHeaderNavigation } from "@/components/header-navigation";
 import { ReadingCard } from "@/modules/Training/components/reading-card";
 import { FragmentsCard } from "@/modules/Training/components/fragments-card";
 import { ShuffleButton } from "@/modules/Training/components/shuffle-button";
 import { FirstLetterCard } from "@/modules/Training/components/first-letter-card";
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from "react-native";
 import { TrainingHeaderAppend } from "@/modules/Training/components/training-header-append";
 import { TrainingContentPrepend } from "@/modules/Training/components/training-content-prepend";
+import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const TRAINING_MODES: Record<App.Training, React.ComponentType<{ verse: App.BibleVerse }>> = {
   READING: ReadingCard,
@@ -60,7 +61,9 @@ export const TrainingPage: React.FC = () => {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, position: "relative" }}>
+      <BookBackground />
+
       <ScrollView style={{ flex: 1 }}>
         <View key={pageKey} style={[styles.listContainer, canShuffle && { paddingBottom: 80 }]}>
           {content.map((verse) => (
@@ -84,6 +87,14 @@ export const Training = WithHeaderNavigation(TrainingPage, {
 });
 
 const styles = StyleSheet.create({
-  listContainer: { flex: 1, paddingHorizontal: 20, paddingTop: 10, paddingBottom: 20, gap: 10 },
+  listContainer: {
+    flex: 1,
+    gap: 10,
+    paddingTop: 10,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+    justifyContent: "center",
+    minHeight: Dimensions.get("window").height - 136,
+  },
   fullPageContainer: { flex: 1, alignItems: "center", justifyContent: "center" },
 });

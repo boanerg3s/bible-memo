@@ -26,7 +26,7 @@ export const TrainingContentPrepend: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     gap: 20,
-    paddingVertical: 7,
+    height: 40,
     flexDirection: "row",
     alignItems: "center",
     paddingHorizontal: 20,
