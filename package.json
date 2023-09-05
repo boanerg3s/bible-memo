@@ -8,10 +8,12 @@
     "android": "expo start --android"
   },
   "dependencies": {
+    "@react-native-voice/voice": "^3.2.4",
     "axios": "^1.5.0",
     "expo": "~49.0.7",
     "expo-asset": "~8.10.1",
     "expo-constants": "~14.4.2",
+    "expo-dev-client": "~2.4.8",
     "expo-linear-gradient": "~12.3.0",
     "expo-linking": "~5.0.2",
     "expo-localization": "~14.3.0",

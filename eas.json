@@ -6,12 +6,12 @@
     "preview": {
       "developmentClient": false,
       "distribution": "internal",
-      "ios": { "enterpriseProvisioning": "adhoc" }
+      "ios": { "enterpriseProvisioning": "adhoc", "simulator": true }
     },
     "develop": {
       "developmentClient": true,
       "distribution": "internal",
-      "ios": { "enterpriseProvisioning": "adhoc" }
+      "ios": { "enterpriseProvisioning": "adhoc", "simulator": true }
     }
   }
 }
