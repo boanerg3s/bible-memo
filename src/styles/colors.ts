@@ -9,6 +9,6 @@ export const AppColors = {
   purple: "#7E46DA",
   red: "#DA4646",
   lightRed: "#F39292",
-  yellow: "#FFC940",
+  yellow: "#ebae13",
   lightYellow: "#FFF3B5",
 };

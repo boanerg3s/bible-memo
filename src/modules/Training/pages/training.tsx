@@ -1,5 +1,4 @@
 import React from "react";
-import { AppStyles } from "@/styles";
 import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { usePassageContent } from "@/hooks/passage";
@@ -8,11 +7,11 @@ import { BookBackground } from "@/components/book-background";
 import { FullPageLoading } from "@/components/full-page-loading";
 import { SimpleError } from "@/modules/Error/containers/simple-error";
 import { WithHeaderNavigation } from "@/components/header-navigation";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { ReadingCard } from "@/modules/Training/components/reading-card";
 import { FragmentsCard } from "@/modules/Training/components/fragments-card";
 import { ShuffleButton } from "@/modules/Training/components/shuffle-button";
 import { FirstLetterCard } from "@/modules/Training/components/first-letter-card";
-import { ActivityIndicator, Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { TrainingHeaderAppend } from "@/modules/Training/components/training-header-append";
 import { TrainingContentPrepend } from "@/modules/Training/components/training-content-prepend";
 
@@ -33,7 +32,8 @@ export const TrainingPage: React.FC = () => {
   const { loading, updateLastSeen } = useObjectiveStore();
   const [pageKey, setPageKey] = React.useState(Math.random());
 
-  const objective = useObjective(Number(params.objectiveId));
+  const objectiveId = Number(params.objectiveId);
+  const objective = useObjective(objectiveId);
   const { content, fetchPassageContent, isContentLoading } = usePassageContent(objective.passage);
 
   const mode = params.trainingKey as App.Training;

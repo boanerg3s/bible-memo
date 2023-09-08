@@ -11,7 +11,7 @@ export const getObjectives = async (): Promise<App.Objective[]> => {
     return {
       id: result.id,
       lastSeen: index === 0,
-      progress: result.progress,
+      score: result.score,
       passage: {
         book: result.book,
         language: result.language,
@@ -30,7 +30,7 @@ export const getObjectives = async (): Promise<App.Objective[]> => {
  */
 export const newObjective = async (passage: Bible.Passage): Promise<void> => {
   const query = `
-    insert into objective (progress, book, language, version, chapter, verse_from, verse_to)
+    insert into objective (score, book, language, version, chapter, verse_from, verse_to)
     values (?, ?, ?, ?, ?, ?, ?)
   `;
 
@@ -62,6 +62,16 @@ export const removeObjective = async (id: number): Promise<void> => {
 export const updateLastSeen = async (objectiveId: number): Promise<void> => {
   const query = `update objective set last_seen = datetime('now') where id = ?`;
   const params = [objectiveId];
+  await db.transact(query, params);
+};
+
+/**
+ * Update the score property for an objective
+ * @param objectiveId
+ */
+export const updateScore = async (score: number, objectiveId: number): Promise<void> => {
+  const query = `update objective set score = ? where id = ?`;
+  const params = [score, objectiveId];
   await db.transact(query, params);
 };
 

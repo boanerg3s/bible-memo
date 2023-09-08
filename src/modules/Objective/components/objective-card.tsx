@@ -9,7 +9,8 @@ import { Tag } from "@/components/tag";
 import { Card } from "@/components/card";
 import { Skeleton } from "moti/skeleton";
 import { useLocale } from "@/hooks/locale";
-import { useCardContent } from "@/modules/Objective/hooks/card";
+import { useSummarizedPassageContent } from "@/hooks/passage";
+import { ScoreTag } from "@/modules/Score/components/score-tag";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 type SuggestedObjectiveCardProps = { objective: App.SuggestedObjective };
@@ -22,25 +23,14 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
   const { t } = useLocale("objective.containers.objective-list");
   const { book, chapter, verseFrom, verseTo } = objective.passage;
   const title = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo}`;
-  const { fetchPassageContent, content, isContentLoading } = useCardContent(objective.passage);
+  const { fetchPassageContent, content, isContentLoading } = useSummarizedPassageContent(objective.passage);
 
   React.useEffect(() => {
     fetchPassageContent();
   }, [fetchPassageContent]);
 
-  const renderProgressTag = () => {
-    if ("id" in objective && "progress" in objective) {
-      if (objective.progress === 100) {
-        return <Tag color="green">{t("memorized")}</Tag>;
-      }
-
-      return (
-        <Tag color="purple">
-          {t("progress")}: {String(objective.progress)}%
-        </Tag>
-      );
-    }
-
+  const renderScoreTag = () => {
+    if ("id" in objective && "score" in objective) return <ScoreTag score={objective.score} />;
     return <Tag color="lightGray">{t("not-started")}</Tag>;
   };
 
@@ -49,9 +39,8 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
     return null;
   };
 
-  // TODO
   const cardAction = () => {
-    if ("id" in objective && "progress" in objective) {
+    if ("id" in objective && "score" in objective) {
       router.push({ pathname: "/view-objective", params: { objectiveId: objective.id } });
       return;
     }
@@ -83,7 +72,7 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
         )}
 
         <View style={styles.horizontalContainer}>
-          {renderProgressTag()}
+          {renderScoreTag()}
           {renderLastSeenTag()}
         </View>
       </TouchableOpacity>

@@ -30,7 +30,7 @@ export const useVoice = () => {
       return (value: string) => {
         callback(value);
         setStopProcess(undefined);
-        console.log("[voice]: finishing the process", value);
+        console.log("[voice]: finishing the process with result", value);
       };
     };
 

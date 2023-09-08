@@ -4,8 +4,8 @@ import { Divider } from "@/components/divider";
 import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScoreInfo } from "@/modules/Objective/components/score-info";
 import { WithHeaderNavigation } from "@/components/header-navigation";
-import { ProgressBar } from "@/modules/Objective/components/progress-bar";
 import { TrainingList } from "@/modules/Training/containers/training-list";
 
 const ViewObjectivePage: React.FC = () => {
@@ -28,7 +28,7 @@ const ViewObjectivePage: React.FC = () => {
         <Divider />
 
         <View style={styles.contentContainer}>
-          <ProgressBar percentage={objective.progress} />
+          <ScoreInfo score={objective.score} objectiveId={objectiveId} />
         </View>
 
         <Divider />

@@ -1,22 +1,25 @@
 import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
-import { Button } from "@/components/button";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { useLocalSearchParams } from "expo-router";
 import { useObjective } from "@/hooks/objective";
+import { router, useLocalSearchParams } from "expo-router";
+import { useScoreInfo } from "@/modules/Score/hooks/score";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const TrainingContentPrepend: React.FC = () => {
   const params = useLocalSearchParams();
-  const objective = useObjective(Number(params.objectiveId));
+  const objectiveId = Number(params.objectiveId);
+  const objective = useObjective(objectiveId);
+  const { scoreNumber } = useScoreInfo(objective.score);
   const { t } = useLocale("training.components.training-content-prepend");
+  const action = () => router.push({ pathname: "/evaluate", params: { objectiveId } });
 
   return (
     <View style={styles.container}>
       <Text style={styles.caption}>
-        {t("your-progress")}: {objective.progress}%
+        {t("your-score")}: {scoreNumber}
       </Text>
 
-      <TouchableOpacity style={styles.customButton}>
+      <TouchableOpacity onPress={action} style={styles.customButton}>
         <Text style={styles.customButtonLabel}>{t("action")}</Text>
       </TouchableOpacity>
     </View>

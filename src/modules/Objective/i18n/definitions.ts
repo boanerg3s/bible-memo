@@ -42,14 +42,14 @@ declare namespace App {
           title: string;
           warning: string;
         };
-        "progress-bar": {
-          "your-progress": string;
+        "score-bar": {
+          "your-score": string;
           action: string;
         };
       };
       containers: {
         "objective-list": {
-          progress: string;
+          score: string;
           memorized: string;
           "last-seen": string;
           "not-started": string;

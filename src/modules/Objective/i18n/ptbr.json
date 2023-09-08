@@ -40,14 +40,14 @@
       "title": "Versão",
       "warning": "Selecione uma versão"
     },
-    "progress-bar": {
-      "your-progress": "Seu progresso",
+    "score-bar": {
+      "your-score": "Sua pontuação",
       "action": "Avaliar memória"
     }
   },
   "containers": {
     "objective-list": {
-      "progress": "Progresso",
+      "score": "Pontuação",
       "memorized": "Memorizado",
       "last-seen": "Último visto",
       "not-started": "Não iniciado"

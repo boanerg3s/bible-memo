@@ -9,6 +9,7 @@ interface ObjectiveStore {
   newObjective: (passage: Bible.Passage) => Promise<number>;
   removeObjective: (id: number) => Promise<void>;
   updateLastSeen: (id: number) => Promise<void>;
+  updateScore: (score: number, id: number) => Promise<void>;
 }
 
 // TODO
@@ -51,6 +52,11 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
     await fetchObjectives();
   };
 
+  const updateScore = async (score: number, id: number) => {
+    await ObjectiveHelper.updateScore(score, id);
+    await fetchObjectives();
+  };
+
   return {
     objectives: [],
     loading: false,
@@ -58,6 +64,7 @@ export const useObjectiveStore = create<ObjectiveStore>((set) => {
     newObjective,
     removeObjective,
     updateLastSeen,
+    updateScore,
     objectiveOfTheWeek: TEST,
   };
 });

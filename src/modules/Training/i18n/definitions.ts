@@ -9,7 +9,7 @@ declare namespace App {
           action: string;
         };
         "training-content-prepend": {
-          "your-progress": string;
+          "your-score": string;
           action: string;
         };
       };

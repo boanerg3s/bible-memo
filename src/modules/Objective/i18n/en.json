@@ -40,14 +40,14 @@
       "title": "title",
       "warning": "warning"
     },
-    "progress-bar": {
-      "your-progress": "your-progress",
+    "score-bar": {
+      "your-score": "your-score",
       "action": "action"
     }
   },
   "containers": {
     "objective-list": {
-      "progress": "progress",
+      "score": "score",
       "memorized": "memorized",
       "last-seen": "last-seen",
       "not-started": "not-started"

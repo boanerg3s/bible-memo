@@ -28,3 +28,17 @@ export const usePassageContent = (passage: Bible.Passage | Bible.SuggestedPassag
     isContentLoading: isLoading,
   };
 };
+
+export const useSummarizedPassageContent = (passage: Bible.Passage | Bible.SuggestedPassage) => {
+  const { content, ...otherProps } = usePassageContent(passage);
+
+  const transformedContent = React.useMemo(() => {
+    const fragments = content?.map(({ text }) => text);
+    return fragments?.join(" ");
+  }, [content]);
+
+  return {
+    content: transformedContent,
+    ...otherProps,
+  };
+};

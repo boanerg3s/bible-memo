@@ -52,7 +52,7 @@ export const initializeDatabase = async (): Promise<void> => {
   await transact(`
     CREATE TABLE IF NOT EXISTS objective (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      progress INTEGER,
+      score INTEGER,
       last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
       book TEXT NOT NULL,
       language TEXT NOT NULL,

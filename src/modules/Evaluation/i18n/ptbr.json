@@ -1,0 +1,26 @@
+{
+  "containers": {
+    "evaluation-capture": {
+      "title": "Testando sua memória",
+      "description": "Repita ou transcreva o %{objective} para avaliar sua memorização",
+      "change-mode": "Não pode falar? Ative o modo de escrita"
+    },
+    "evaluation-result": {
+      "score-description": "Sua pontuação neste teste",
+      "new-score-description": "Sua pontuação final"
+    }
+  },
+  "components": {
+    "evaluate-button": {
+      "init": "Iniciar",
+      "stop": "Parar e avaliar",
+      "error": "Não foi possivel capturar o que você disse...\nProcure um lugar silencioso ou revise suas configurações de audio.",
+      "prepare": "Prepare-se",
+      "try-again": "Tente novamente"
+    },
+    "write-box": {
+      "evaluate": "Avaliar",
+      "write-here": "Escreva aqui..."
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
-import { useCardContent } from "@/modules/Objective/hooks/card";
+import { useSummarizedPassageContent } from "@/hooks/passage";
 import { FullPageLoading } from "@/components/full-page-loading";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 import { WithHeaderNavigation } from "@/components/header-navigation";
@@ -20,7 +20,11 @@ const AddSuggestedObjectivePage: React.FC = () => {
   const { t } = useLocale("objective.pages.add-suggested-objective");
   const { canContinue, continueAction, ...setters } = useAddObjectiveStore();
   const { setLanguage, setVersion, setBook, setChapter, setVerseFrom, setVerseTo } = setters;
-  const { fetchPassageContent, content, isContentLoading } = useCardContent(objective.passage);
+  const { fetchPassageContent, content, isContentLoading } = useSummarizedPassageContent(objective.passage);
+
+  const { t: tBible } = useLocale("bible.label");
+  const { book, chapter, verseFrom, verseTo } = objective.passage;
+  const passage = `${tBible(book)} ${chapter}:${verseFrom}-${verseTo}`;
 
   const loadDefaultValues = async () => {
     const { language, version } = await predictBibleConfig();
@@ -47,7 +51,7 @@ const AddSuggestedObjectivePage: React.FC = () => {
       <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.innerContainer} nestedScrollEnabled={true}>
         <View style={styles.headerContainer}>
           <Text style={styles.headline}>{t("title")}:</Text>
-          <Text style={styles.title}>Salmos 1:1</Text>
+          <Text style={styles.title}>{passage}</Text>
 
           <Text numberOfLines={3} style={styles.description}>
             {content}

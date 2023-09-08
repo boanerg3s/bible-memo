@@ -48,7 +48,7 @@ export const useRecognization = () => {
     if (e.error) {
       setHasErrors(true);
       setIsListening(false);
-      console.error("[voice]: an error happened while trying to recognize voice", e);
+      console.log("[voice]: an error happened while trying to recognize voice", e);
     }
   };
 

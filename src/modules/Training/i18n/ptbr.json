@@ -19,7 +19,7 @@
       "action": "Embaralhar"
     },
     "training-content-prepend": {
-      "your-progress": "Seu progresso no trecho",
+      "your-score": "Sua pontuação",
       "action": "Avaliar memória"
     }
   }
