@@ -1,5 +1,6 @@
 import { AppStyles } from "@/styles";
 import { StyleSheet, View } from "react-native";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 type VoiceVisualizerProps = { factor: number; size?: number };
 
 export const VoiceVisualizer: React.FC<VoiceVisualizerProps> = (props) => {
@@ -13,9 +14,24 @@ export const VoiceVisualizer: React.FC<VoiceVisualizerProps> = (props) => {
   };
 
   const styles = StyleSheet.create({
-    container: { flexDirection: "row", gap: 2, alignItems: "center", justifyContent: "center" },
-    small: { width: 5, borderRadius: 5, height: calculateHeight("small"), backgroundColor: AppStyles.color.gray },
-    large: { width: 5, borderRadius: 5, height: calculateHeight("large"), backgroundColor: AppStyles.color.gray },
+    container: {
+      flexDirection: "row",
+      gap: moderateScale(2),
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    small: {
+      width: scale(5),
+      borderRadius: scale(5),
+      height: verticalScale(calculateHeight("small")),
+      backgroundColor: AppStyles.color.gray,
+    },
+    large: {
+      width: scale(5),
+      borderRadius: scale(5),
+      height: verticalScale(calculateHeight("large")),
+      backgroundColor: AppStyles.color.gray,
+    },
   });
 
   return (

@@ -1,8 +1,9 @@
 import { router } from "expo-router";
 import { AppStyles } from "@/styles";
+import Entypo from "@expo/vector-icons/Entypo";
 import { StyleSheet, View } from "react-native";
-import { ArrowLeft } from "react-native-feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 
 export const WithHeaderNavigation = <T extends object>(
   WrappedComponent: React.ComponentType<T>,
@@ -24,7 +25,7 @@ export const WithHeaderNavigation = <T extends object>(
       <View style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
-            <ArrowLeft stroke={AppStyles.color.gray} />
+            <Entypo color={AppStyles.color.gray} size={moderateScale(36)} name="chevron-small-left" />
           </TouchableOpacity>
 
           {options?.HeaderAppend && <options.HeaderAppend {...props} />}
@@ -39,6 +40,13 @@ export const WithHeaderNavigation = <T extends object>(
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  safeArea: { flex: 1, paddingTop: 20 },
-  header: { height: 48, paddingHorizontal: 16, alignItems: "center", flexDirection: "row", gap: 10 },
+  safeArea: { flex: 1, paddingTop: moderateScale(20) },
+  header: {
+    height: verticalScale(48),
+    paddingLeft: moderateScale(8),
+    paddingRight: moderateScale(16),
+    alignItems: "center",
+    flexDirection: "row",
+    gap: moderateScale(10),
+  },
 });

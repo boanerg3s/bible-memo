@@ -12,6 +12,7 @@ import { useLocale } from "@/hooks/locale";
 import { useSummarizedPassageContent } from "@/hooks/passage";
 import { ScoreTag } from "@/modules/Score/components/score-tag";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 
 type SuggestedObjectiveCardProps = { objective: App.SuggestedObjective };
 type AdoptedObjectiveCardProps = { objective: App.Objective };
@@ -59,9 +60,9 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
 
         {isContentLoading && (
           <MotiView transition={{ type: "timing" }} style={styles.skeletonContainer}>
-            <Skeleton colorMode="light" height={10} width="100%" />
-            <Skeleton colorMode="light" height={10} width="100%" />
-            <Skeleton colorMode="light" height={10} width="100%" />
+            <Skeleton colorMode="light" height={verticalScale(10)} width="100%" />
+            <Skeleton colorMode="light" height={verticalScale(10)} width="100%" />
+            <Skeleton colorMode="light" height={verticalScale(10)} width="100%" />
           </MotiView>
         )}
 
@@ -81,10 +82,10 @@ export const ObjectiveCard: React.FC<ObjectiveCardProps> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  innerCard: { padding: 20, gap: 10 },
+  innerCard: { padding: moderateScale(20), gap: moderateScale(10) },
   preview: { color: AppStyles.color.gray },
   cardTitle: { fontSize: AppStyles.fontSize.xl, fontWeight: "bold" },
-  skeletonContainer: { flexDirection: "column", gap: 11 },
-  horizontalContainer: { flexDirection: "row", gap: 5, alignItems: "center" },
+  skeletonContainer: { flexDirection: "column", gap: moderateScale(11) },
+  horizontalContainer: { flexDirection: "row", gap: moderateScale(5), alignItems: "center" },
   cardTitleAppend: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray, fontWeight: "bold" },
 });

@@ -2,9 +2,10 @@ import React from "react";
 import { AppStyles } from "@/styles";
 import { TagProps } from "@/components/tag/interface";
 import { StyleSheet, Text, View } from "react-native";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 export const Tag = (props: TagProps) => {
-  const { children, color = "blue" } = props;
+  const { children, color = "primary" } = props;
 
   const styles = StyleSheet.create({
     container: {
@@ -12,13 +13,13 @@ export const Tag = (props: TagProps) => {
       flexDirection: "row",
     },
     innerContainer: {
-      height: 26,
       display: "flex",
-      borderRadius: 26,
+      borderRadius: scale(26),
       flexDirection: "row",
       alignItems: "center",
-      paddingHorizontal: 10,
+      paddingHorizontal: moderateScale(10),
       justifyContent: "center",
+      height: verticalScale(26),
       backgroundColor: AppStyles.color[color],
     },
     label: {
@@ -26,7 +27,11 @@ export const Tag = (props: TagProps) => {
       textTransform: "uppercase",
       fontSize: AppStyles.fontSize.xs,
       color:
-        color === "white" ? AppStyles.color.blue : color === "lightGray" ? AppStyles.color.gray : AppStyles.color.white,
+        color === "white"
+          ? AppStyles.color.primary
+          : color === "lightGray"
+          ? AppStyles.color.gray
+          : AppStyles.color.white,
     },
   });
 

@@ -3,8 +3,12 @@ declare namespace App {
     training: {
       title: Record<App.Training, string>;
       description: Record<App.Training, string>;
-      tip: Record<App.Training, string>;
+      tip: Record<App.Training, string> & { more: string };
       components: {
+        "dictation-card": {
+          placeholder: string;
+          play: string;
+        };
         "shuffle-button": {
           action: string;
         };

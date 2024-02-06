@@ -15,6 +15,13 @@ declare namespace App {
         "view-objective": {
           headline: string;
           exercises: string;
+          delete: string;
+          remove: {
+            title: string;
+            description: string;
+            cancel: string;
+            confirm: string;
+          };
         };
       };
       components: {
@@ -45,6 +52,8 @@ declare namespace App {
         "score-bar": {
           "your-score": string;
           action: string;
+          about: string;
+          more: string;
         };
       };
       containers: {
@@ -53,6 +62,14 @@ declare namespace App {
           memorized: string;
           "last-seen": string;
           "not-started": string;
+        };
+      };
+      stores: {
+        "add-objective": {
+          toast: {
+            title: string;
+            description: string;
+          };
         };
       };
     };

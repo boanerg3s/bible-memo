@@ -12,6 +12,9 @@ declare namespace App {
         "objective-suggestion-header": {
           title: string;
         };
+        "notification-config-header": {
+          title: string;
+        };
       };
     };
   }

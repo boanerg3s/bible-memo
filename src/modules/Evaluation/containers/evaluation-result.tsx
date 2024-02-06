@@ -1,16 +1,21 @@
 import React from "react";
 import { router } from "expo-router";
 import { AppStyles } from "@/styles";
-import abbreviate from "number-abbreviate";
 import { useLocale } from "@/hooks/locale";
+import LottieView from "lottie-react-native";
 import { Button } from "@/components/button";
 import { ReText } from "react-native-redash";
-import { StyleSheet, Text, View } from "react-native";
-import { runOnJS, useDerivedValue, useSharedValue, withTiming } from "react-native-reanimated";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { moderateScale, scale } from "react-native-size-matters";
+import { useDerivedValue, useSharedValue, withTiming } from "react-native-reanimated";
+import { BadScore } from "../components/bad-score";
+import { OkScore } from "../components/ok-score";
+import { GoodScore } from "../components/good-score";
+import { VeryGoodScore } from "../components/very-good-score";
+import { Divider } from "@/components/divider";
 
 interface Props {
   score: number;
-  newScore: number;
 }
 
 export const EvaluationResult: React.FC<Props> = (props) => {
@@ -19,19 +24,42 @@ export const EvaluationResult: React.FC<Props> = (props) => {
   const animatedScore = useSharedValue(0);
   const formattedAnimatedScore = useDerivedValue(() => `${Math.floor(animatedScore.value)}`);
 
-  const animatedNewScore = useSharedValue(0);
-  const [totalScoreNumber, setTotalScoreNumber] = React.useState("");
-  const abbr = (value: number): void => setTotalScoreNumber(abbreviate(Math.floor(value), 2));
-  useDerivedValue(() => runOnJS(abbr)(animatedNewScore.value));
-
   React.useEffect(() => {
     animatedScore.value = withTiming(props.score, { duration: 1000 });
-    animatedNewScore.value = withTiming(props.newScore, { duration: 1500 });
   }, []);
+
+  const renderAnimation = () => {
+    const getDetails = () => {
+      if (props.score < 30) return require("@/assets/lottie/cry.json");
+      if (props.score < 50) return require("@/assets/lottie/ok.json");
+      if (props.score < 80) return require("@/assets/lottie/good.json");
+      return require("@/assets/lottie/very-good.json");
+    };
+
+    return (
+      <View style={{ gap: scale(15), alignItems: "center" }}>
+        <LottieView
+          loop
+          autoPlay
+          source={getDetails()}
+          style={{ width: moderateScale(150), height: moderateScale(150) }}
+        />
+      </View>
+    );
+  };
+
+  const renderExplaination = () => {
+    if (props.score < 30) return <BadScore />;
+    if (props.score < 50) return <OkScore />;
+    if (props.score < 80) return <GoodScore />;
+    return <VeryGoodScore />;
+  };
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={styles.container}>
+      <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
+        {renderAnimation()}
+
         <View style={styles.textsContainer}>
           <Text style={styles.title}>{t("score-description")}</Text>
 
@@ -41,11 +69,11 @@ export const EvaluationResult: React.FC<Props> = (props) => {
           </View>
         </View>
 
-        <View style={styles.textsContainer}>
-          <Text style={styles.title}>{t("new-score-description")}</Text>
-          <Text style={styles.number}>{totalScoreNumber}</Text>
-        </View>
-      </View>
+        <Divider />
+
+        {renderExplaination()}
+      </ScrollView>
+
       <Button action={router.back}>Continuar</Button>
     </View>
   );
@@ -53,17 +81,20 @@ export const EvaluationResult: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   textsContainer: {
-    gap: 5,
+    flex: 1,
+    width: "100%",
+    gap: moderateScale(5),
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
   },
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 40,
-    gap: 40,
+    paddingHorizontal: moderateScale(40),
+    paddingTop: moderateScale(10),
+    paddingBottom: moderateScale(40),
+    gap: moderateScale(30),
   },
   title: {
     textAlign: "center",
@@ -80,6 +111,6 @@ const styles = StyleSheet.create({
   smallNumber: {
     fontSize: AppStyles.fontSize.lg,
     color: AppStyles.color.gray,
-    marginTop: 20,
+    marginTop: moderateScale(20),
   },
 });

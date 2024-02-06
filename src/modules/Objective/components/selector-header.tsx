@@ -1,6 +1,7 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { StyleSheet, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 interface SelectorHeaderProps {
   title: string;
@@ -20,9 +21,9 @@ export const SelectorHeader = (props: SelectorHeaderProps) => {
 
 const styles = StyleSheet.create({
   header: {
-    padding: 20,
     flexDirection: "row",
     alignItems: "center",
+    padding: moderateScale(20),
     justifyContent: "space-between",
   },
   headerTitle: {
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     fontSize: AppStyles.fontSize.sm,
   },
   headerContent: {
-    gap: 10,
+    gap: moderateScale(10),
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "center",

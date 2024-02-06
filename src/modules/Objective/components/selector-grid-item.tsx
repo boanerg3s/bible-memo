@@ -1,6 +1,7 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { TouchableOpacity, StyleSheet, Text, View } from "react-native";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 type SelectorGridItemRef = { setIsItemActive: (value: boolean) => void };
 type SelectorGridItemProps = { label: string; setItemAsChosen: () => void; isActive?: boolean; flat: boolean };
@@ -19,18 +20,18 @@ export const SelectorGridItem = React.forwardRef<SelectorGridItemRef, SelectorGr
   const [isItemActive, setIsItemActive] = React.useState(isActive);
   React.useImperativeHandle(ref, () => ({ setIsItemActive }));
 
-  const color = { color: isItemActive ? AppStyles.color.white : AppStyles.color.gray };
+  const color = { color: isItemActive ? AppStyles.color.black : AppStyles.color.gray };
 
   const styles = StyleSheet.create({
     innerItemContainer: {
       flex: 1,
-      borderRadius: 12,
+      borderRadius: scale(12),
       justifyContent: "center",
-      height: flat ? 36 : "auto",
-      paddingHorizontal: flat ? 10 : 0,
+      height: flat ? verticalScale(36) : "auto",
+      paddingHorizontal: moderateScale(flat ? 10 : 0),
       aspectRatio: flat ? undefined : 1 / 1,
       alignItems: flat ? "flex-start" : "center",
-      backgroundColor: isItemActive ? AppStyles.color.lightBlue : AppStyles.color.lightGray,
+      backgroundColor: isItemActive ? AppStyles.color.lightPrimary : AppStyles.color.lightGray,
     },
     itemLabel: {
       fontWeight: "bold",
@@ -59,4 +60,4 @@ export const SelectorGridPlaceholder = () => {
   return <View style={commonStyles.itemContainer} />;
 };
 
-const commonStyles = StyleSheet.create({ itemContainer: { flex: 1, padding: 5 } });
+const commonStyles = StyleSheet.create({ itemContainer: { flex: 1, padding: moderateScale(5) } });

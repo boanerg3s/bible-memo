@@ -1,7 +1,9 @@
 import React from "react";
 import { create } from "zustand";
-import { router } from "expo-router";
+import Toast from "react-native-toast-message";
+import { router, useNavigation } from "expo-router";
 import { useObjectiveStore } from "@/stores/objective";
+import { useLocale } from "@/hooks/locale";
 
 interface BaseAddObjectiveStore {
   book?: Bible.Book;
@@ -71,6 +73,8 @@ const addObjectiveStore = create<BaseAddObjectiveStore>((set, get) => ({
 }));
 
 export const useAddObjectiveStore = (): AddObjectiveStore => {
+  const { t } = useLocale("objective.stores.add-objective");
+  const navigation = useNavigation<any>();
   const store = addObjectiveStore((state) => state);
   const newObjective = useObjectiveStore((state) => state.newObjective);
   const { book, chapter, verseFrom, verseTo, language, version } = store;
@@ -94,9 +98,22 @@ export const useAddObjectiveStore = (): AddObjectiveStore => {
 
       const passage: Bible.Passage = { book, chapter, verseFrom, verseTo, version, language };
       const objectiveId = await newObjective(passage);
+      navigation.reset({ index: 0, routes: [{ name: "index", key: "/" }] });
 
-      router.replace("/home");
-      return router.push({ pathname: "/view-objective", params: { objectiveId: objectiveId } });
+      const onPressToast = () => {
+        Toast.hide();
+        router.push({ pathname: "/view-objective", params: { objectiveId: objectiveId } });
+      };
+
+      Toast.show({
+        autoHide: true,
+        swipeable: true,
+        type: "success",
+        position: "bottom",
+        onPress: onPressToast,
+        text1: t("toast.title"),
+        text2: t("toast.description"),
+      });
     } catch (error) {
       error;
       return router.replace("/");

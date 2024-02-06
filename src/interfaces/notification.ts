@@ -6,14 +6,10 @@ declare namespace App {
     | "every_wednesday"
     | "every_thursday"
     | "every_friday"
-    | "every_saturday"
-    | "every_weekday"
-    | "every_day";
+    | "every_saturday";
 
   export interface Notification {
-    enabled: boolean;
-    when?: NotificationDayConfiguration;
-    interval?: number;
-    blockedListInterval?: { start: number; end: number };
+    at: string[];
+    when: NotificationDayConfiguration[];
   }
 }

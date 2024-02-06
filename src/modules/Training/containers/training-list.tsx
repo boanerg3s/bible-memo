@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import { useTrainingList } from "@/modules/Training/hooks/lists";
 import { TrainingCard } from "@/modules/Training/components/training-card";
 
@@ -27,5 +28,5 @@ export const TrainingList: React.FC<TrainingListProps> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, flexDirection: "column", gap: 10, marginTop: 10 },
+  container: { flex: 1, flexDirection: "column", gap: moderateScale(10), marginTop: moderateScale(10) },
 });

@@ -5,7 +5,7 @@ import { useSummarizedPassageContent } from "@/hooks/passage";
 
 export const useEvaluation = (objective: App.Objective) => {
   const { updateScore } = useObjectiveStore();
-  const [result, setResult] = React.useState<{ score: number; newScore: number }>();
+  const [result, setResult] = React.useState<{ score: number }>();
   const { content, fetchPassageContent, isContentLoading } = useSummarizedPassageContent(objective.passage);
 
   /** fetch passage content */
@@ -16,9 +16,8 @@ export const useEvaluation = (objective: App.Objective) => {
   /** trigger evaluation flow */
   const evaluate = async (value: string) => {
     const score = evaluateBiblePassage(value, content!);
-    const newScore = objective.score + score;
-    await updateScore(newScore, objective.id);
-    setResult({ score, newScore });
+    await updateScore(score, objective.id);
+    setResult({ score });
   };
 
   return {

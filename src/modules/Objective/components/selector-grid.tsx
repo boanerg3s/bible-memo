@@ -1,5 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
+import { moderateScale } from "react-native-size-matters";
 import { View, ListRenderItem, ScrollView, StyleSheet } from "react-native";
 
 import {
@@ -51,11 +52,11 @@ export const SelectorGrid = React.memo(
           contentContainerStyle={{ flex: 1 }}
         >
           <FlatList
+            bounces={false}
             style={styles.grid}
             numColumns={numCols}
             renderItem={renderItem}
             data={dataWithPlaceholder}
-            removeClippedSubviews={true}
             keyExtractor={(item, index) => `${item.key}-${index}`}
           />
         </ScrollView>
@@ -67,11 +68,11 @@ export const SelectorGrid = React.memo(
 
 const styles = StyleSheet.create({
   scrollview: {
-    marginTop: -10,
-    paddingBottom: 15,
+    marginTop: moderateScale(-10),
+    paddingBottom: moderateScale(15),
   },
   grid: {
-    paddingHorizontal: 15,
+    paddingHorizontal: moderateScale(15),
   },
   contentContainer: {
     flexWrap: "wrap",

@@ -1,6 +1,7 @@
-import { Card } from "@/components/card";
 import { AppStyles } from "@/styles";
+import { Card } from "@/components/card";
 import { StyleSheet, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 export const ReadingCard: React.FC<{ verse: App.BibleVerse }> = (props) => {
   return (
@@ -16,7 +17,7 @@ export const ReadingCard: React.FC<{ verse: App.BibleVerse }> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  container: { padding: 20, flexDirection: "row" },
+  container: { padding: moderateScale(20), flexDirection: "row" },
   number: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
   text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black },
 });

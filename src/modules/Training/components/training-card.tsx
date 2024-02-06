@@ -1,6 +1,7 @@
 import { router } from "expo-router";
 import { AppStyles } from "@/styles";
 import { Card } from "@/components/card";
+import { moderateScale } from "react-native-size-matters";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 interface TrainingCardProps {
@@ -32,9 +33,9 @@ export const TrainingCard: React.FC<TrainingCardProps> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  innerCard: { padding: 20, gap: 10 },
+  innerCard: { padding: moderateScale(20), gap: moderateScale(10) },
   preview: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
   cardTitle: { fontSize: AppStyles.fontSize.base, fontWeight: "bold" },
-  horizontalContainer: { flexDirection: "row", gap: 5, alignItems: "center" },
+  horizontalContainer: { flexDirection: "row", gap: moderateScale(5), alignItems: "center" },
   cardTitleAppend: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray, fontWeight: "bold" },
 });

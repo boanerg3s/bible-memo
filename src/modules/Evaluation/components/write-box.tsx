@@ -3,6 +3,7 @@ import { Card } from "@/components/card";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { TextInput, View } from "react-native";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 
 interface Props {
   onListen: (value: string) => void;
@@ -14,15 +15,15 @@ export const WriteBox: React.FC<Props> = (props) => {
   const action = () => props.onListen(value);
 
   return (
-    <View style={{ flexDirection: "column", gap: 20, width: "100%" }}>
+    <View style={{ flexDirection: "column", gap: moderateScale(20), width: "100%" }}>
       <Card>
         <TextInput
           multiline
           numberOfLines={6}
-          style={{ padding: 20 }}
           onChangeText={setValue}
           textAlignVertical="top"
           placeholder={t("write-here")}
+          style={{ margin: moderateScale(20), maxHeight: verticalScale(150) }}
         />
       </Card>
 

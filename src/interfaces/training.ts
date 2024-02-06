@@ -1,3 +1,3 @@
 declare namespace App {
-  type Training = "READING" | "FRAGMENTS" | "FIRST_LETTER";
+  type Training = "READING" | "FRAGMENTS" | "FIRST_LETTER" | "DICTATION";
 }

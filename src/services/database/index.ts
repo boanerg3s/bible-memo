@@ -1,5 +1,4 @@
 import * as SQLite from "expo-sqlite";
-import { reloadApplication } from "@/helpers/app";
 
 /**
  * Get the SQLite Connection
@@ -66,7 +65,7 @@ export const initializeDatabase = async (): Promise<void> => {
   await transact(`
     CREATE TABLE IF NOT EXISTS preference (
       id TEXT PRIMARY KEY,
-      value TEXT NOT NULL
+      value TEXT
     );
   `);
 };
@@ -79,5 +78,4 @@ export const cleanDatabase = async (): Promise<void> => {
   const conn = getConnection();
   await conn.closeAsync();
   await conn.deleteAsync();
-  await reloadApplication();
 };

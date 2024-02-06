@@ -9,6 +9,8 @@ import { SimpleError } from "@/modules/Error/containers/simple-error";
 import { WithHeaderNavigation } from "@/components/header-navigation";
 import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import { ReadingCard } from "@/modules/Training/components/reading-card";
+import { moderateScale, verticalScale } from "react-native-size-matters";
+import { DictationCard } from "@/modules/Training/components/dictation-card";
 import { FragmentsCard } from "@/modules/Training/components/fragments-card";
 import { ShuffleButton } from "@/modules/Training/components/shuffle-button";
 import { FirstLetterCard } from "@/modules/Training/components/first-letter-card";
@@ -17,6 +19,7 @@ import { TrainingContentPrepend } from "@/modules/Training/components/training-c
 
 const TRAINING_MODES: Record<App.Training, React.ComponentType<{ verse: App.BibleVerse }>> = {
   READING: ReadingCard,
+  DICTATION: DictationCard,
   FRAGMENTS: FragmentsCard,
   FIRST_LETTER: FirstLetterCard,
 };
@@ -24,6 +27,7 @@ const TRAINING_MODES: Record<App.Training, React.ComponentType<{ verse: App.Bibl
 const MODES_CAN_SHUFFLE: Record<App.Training, boolean> = {
   READING: false,
   FRAGMENTS: true,
+  DICTATION: false,
   FIRST_LETTER: false,
 };
 
@@ -57,8 +61,8 @@ export const TrainingPage: React.FC = () => {
     <View style={{ flex: 1, position: "relative" }}>
       <BookBackground />
 
-      <ScrollView style={{ flex: 1 }}>
-        <View key={pageKey} style={[styles.listContainer, canShuffle && { paddingBottom: 80 }]}>
+      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps="always">
+        <View key={pageKey} style={[styles.listContainer, canShuffle && { paddingBottom: moderateScale(80) }]}>
           {content.map((verse) => (
             <ModeComponent key={verse.number} verse={verse} />
           ))}
@@ -82,12 +86,12 @@ export const Training = WithHeaderNavigation(TrainingPage, {
 const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
-    gap: 10,
-    paddingTop: 10,
-    paddingBottom: 20,
-    paddingHorizontal: 20,
+    gap: moderateScale(10),
+    paddingTop: moderateScale(10),
+    paddingBottom: moderateScale(20),
+    paddingHorizontal: moderateScale(20),
     justifyContent: "center",
-    minHeight: Dimensions.get("window").height - 136,
+    minHeight: verticalScale(Dimensions.get("window").height - 136),
   },
   fullPageContainer: { flex: 1, alignItems: "center", justifyContent: "center" },
 });

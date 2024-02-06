@@ -1,12 +1,13 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
+import { Button } from "@/components/button";
 import { useObjective } from "@/hooks/objective";
 import { useLocalSearchParams } from "expo-router";
+import { WriteBox } from "../components/write-box";
+import { moderateScale } from "react-native-size-matters";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { EvaluateButton } from "@/modules/Evaluation/components/evaluate-button";
-import { Button } from "@/components/button";
-import { WriteBox } from "../components/write-box";
 
 interface Props {
   onListen: (value: string) => void;
@@ -48,7 +49,7 @@ export const EvaluationCapture: React.FC<Props> = (props) => {
     <ScrollView contentContainerStyle={styles.container}>
       <EvaluationCaptureHeader />
       <EvaluateButton onListen={props.onListen} />
-      <Button type="secondary" size="small" rounded action={() => setWriteMode(true)}>
+      <Button type="secondary" grow={false} size="small" rounded action={() => setWriteMode(true)}>
         {t("change-mode")}
       </Button>
     </ScrollView>
@@ -56,8 +57,14 @@ export const EvaluationCapture: React.FC<Props> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  textsContainer: { flexDirection: "column", gap: 5 },
-  container: { flex: 1, justifyContent: "center", alignItems: "center", paddingHorizontal: 40, gap: 40 },
+  textsContainer: { flexDirection: "column", gap: moderateScale(5) },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingHorizontal: moderateScale(40),
+    gap: moderateScale(40),
+  },
   title: { textAlign: "center", textTransform: "uppercase", fontSize: AppStyles.fontSize.sm, fontWeight: "bold" },
   objective: { textAlign: "center", fontWeight: "bold", fontSize: AppStyles.fontSize["2xl"] },
   description: { fontSize: AppStyles.fontSize.base, textAlign: "center", color: AppStyles.color.black },

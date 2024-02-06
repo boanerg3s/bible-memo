@@ -24,6 +24,22 @@ declare namespace App {
           evaluate: string;
           "write-here": string;
         };
+        "bad-score": {
+          title: string;
+          description: string;
+        };
+        "ok-score": {
+          title: string;
+          description: string;
+        };
+        "good-score": {
+          title: string;
+          description: string;
+        };
+        "very-good-score": {
+          title: string;
+          description: string;
+        };
       };
     };
   }

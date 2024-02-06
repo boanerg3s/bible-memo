@@ -1,5 +1,5 @@
-import { I18n, TranslateOptions } from "i18n-js";
 import { create } from "zustand";
+import { I18n, TranslateOptions } from "i18n-js";
 import { getTranslations } from "@/helpers/i18n";
 import * as LanguageHelper from "@/helpers/language";
 
@@ -36,7 +36,7 @@ export const useLanguageStore = create<LanguageStore>((set) => {
 
     const i18n = new I18n(translations);
     i18n.locale = language;
-    i18n.defaultLocale = "en";
+    i18n.defaultLocale = "ptbr";
     i18n.enableFallback = true;
 
     set(() => ({ t: translatorProxy(i18n) }));

@@ -1,6 +1,4 @@
 declare namespace Bible {
-  export type EnglishVersion = "A" | "B" | "C";
-
   export type BrazilianPortugueseVersion =
     | "ACF"
     | "ARA"
@@ -16,10 +14,9 @@ declare namespace Bible {
     | "NVT"
     | "TB";
 
-  export type Version = EnglishVersion | BrazilianPortugueseVersion;
+  export type Version = BrazilianPortugueseVersion;
 
   export interface VersionList<T = string> {
-    en: Record<EnglishVersion, T>;
     ptbr: Record<BrazilianPortugueseVersion, T>;
   }
 }

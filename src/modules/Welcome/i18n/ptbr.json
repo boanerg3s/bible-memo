@@ -1,9 +1,53 @@
 {
   "pages": {
     "presentation": {
-      "title": "Seja bem-vindo ao \nBible Memo.",
-      "description": "Você está prestes a iniciar sua jornada de \nmemorização bíblica e nosso desejo é \ntornar este percurso muito \nmais prático e rápido.",
-      "action": "Iniciar"
+      "action": "Continuar"
+    }
+  },
+  "containers": {
+    "first-step": {
+      "title": "Seja bem-vindo ao \nBiblegram.",
+      "description": "Você está prestes a iniciar sua jornada de \nmemorização bíblica e nosso desejo é \ntornar este percurso muito \nmais prático e rápido."
+    },
+    "second-step": {
+      "intro": [
+        "Temos hoje em nossa plataforma 4 treinamentos disponíveis: leitura, ditado, primeira letra e fragmentos.",
+        "Cada treinamento tem sua particularidade, e o ponto mais importante sobre todos é que eles devem ser utilizados com cautela e sabedoria em momentos específicos da sua jornada com um texto a ser memorizado.",
+        "Veja abaixo uma descrição de cada modo e sua aplicação usando como base o texto de João 3:16:"
+      ],
+      "training": {
+        "exampleConfig": {
+          "book": "JN",
+          "chapter": 3,
+          "verseTo": 16,
+          "verseFrom": 16,
+          "version": "ARA",
+          "language": "ptbr"
+        },
+        "reading": {
+          "title": "Leitura em voz alta",
+          "description": "Recomendado para gerar familiaridade com um texto. Geralmente é o primeiro treinamento a ser realizado no processo de memorização."
+        },
+        "dictation": {
+          "title": "Ditado",
+          "description": "Como em uma escola, você deverá digitar o texto recitado por nossa plataforma. Este treinamento irá gerar grande familiaridade com o texto."
+        },
+        "first-letter": {
+          "title": "Primeira Letra",
+          "description": "Esta técnica é recomendada para leitores com uma familiaridade mínima com o texto. A exibição da primeira letra de cada palavra pode ser comparada a um rio que flui naturalmente. Nesta etapa, é possível que qualquer pessoa com o mínimo de familiaridade com o texto possa recitá-lo integralmente."
+        },
+        "fragments": {
+          "title": "Fragmentos",
+          "description": "Essa abordagem é ideal para fortalecer e consolidar a memorização, pois exige um alto nível de familiaridade com o texto. Ao praticar dessa forma, é possível memorizar completamente o trecho, tornando-se capaz de recitá-lo integralmente sem qualquer ajuda adicional."
+        }
+      }
+    },
+    "third-step": {
+      "description": [
+        "Eba! Agora que você finalizou seu onboarding poderá selecionar um trecho para iniciar seu processo de memorização.",
+        "Lembre-se: é melhor começar memorizando trechos menores e então ir progredindo...",
+        "Dessa forma, em breve você será capaz de memorizar um capítulo inteiro!"
+      ]
     }
   }
 }

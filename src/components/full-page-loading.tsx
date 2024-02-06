@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, View } from "react-native";
 export const FullPageLoading: React.FC = () => {
   return (
     <View style={styles.container}>
-      <ActivityIndicator size={32} color={AppStyles.color.blue} />
+      <ActivityIndicator size={32} color={AppStyles.color.primary} />
     </View>
   );
 };

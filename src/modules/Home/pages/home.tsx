@@ -1,7 +1,7 @@
-import { Button } from "@/components/button";
+import { Logo } from "@/components/logo";
+import { AppColors } from "@/styles/colors";
 import { Divider } from "@/components/divider";
-import { reloadApplication } from "@/helpers/app";
-import { cleanDatabase } from "@/services/database";
+import { moderateScale } from "react-native-size-matters";
 import { ScrollView, StyleSheet, View } from "react-native";
 import { ObjectiveList } from "@/modules/Objective/containers/objective-list";
 import { ObjectiveListHeader } from "@/modules/Home/components/objective-list-header";
@@ -10,13 +10,12 @@ import { SuggestedObjective } from "@/modules/Objective/containers/suggested-obj
 import { ObjectiveSuggestionHeader } from "@/modules/Home/components/objective-suggestion-header";
 
 export const HomePage: React.FC = () => {
-  const reset = async () => {
-    await cleanDatabase();
-    reloadApplication();
-  };
-
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Logo />
+      </View>
+
       <View style={styles.list}>
         <ObjectiveSuggestionHeader />
         <SuggestedObjective />
@@ -31,23 +30,13 @@ export const HomePage: React.FC = () => {
         <ObjectiveList />
         <ObjectiveListAction />
       </View>
-
-      {__DEV__ && (
-        <View>
-          <View style={styles.list}>
-            <Divider />
-          </View>
-
-          <View style={styles.list}>
-            <Button action={reset}>Reset Database</Button>
-          </View>
-        </View>
-      )}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  icons: { alignItems: "flex-end", padding: 20 },
-  list: { padding: 20, gap: 20 },
+  container: { backgroundColor: AppColors.white },
+  icons: { alignItems: "flex-end", padding: moderateScale(20) },
+  list: { padding: moderateScale(20), gap: moderateScale(20) },
+  logoContainer: { paddingHorizontal: moderateScale(20), paddingTop: moderateScale(20) },
 });

@@ -2,8 +2,8 @@
   "containers": {
     "evaluation-capture": {
       "title": "Testando sua memória",
-      "description": "Repita ou transcreva o %{objective} para avaliar sua memorização",
-      "change-mode": "Não pode falar? Ative o modo de escrita"
+      "description": "Repita ou transcreva %{objective} para avaliar sua memorização",
+      "change-mode": "Ativar o modo de escrita"
     },
     "evaluation-result": {
       "score-description": "Sua pontuação neste teste",
@@ -21,6 +21,22 @@
     "write-box": {
       "evaluate": "Avaliar",
       "write-here": "Escreva aqui..."
+    },
+    "bad-score": {
+      "title": "Ops... Você não foi bem...",
+      "description": "Sua memória falhou neste teste e sua pontuação foi muito abaixo do esperado. \n\nVocê pode continuar praticando ou repetir esta avaliação para tentar melhores resultados. \n\nLembre-se de priorizar exercícios mais fáceis para fortalecer sua memória antes de partir para os exercícios mais complexos e que exigem mais de sua memorização."
+    },
+    "ok-score": {
+      "title": "\"OK\"",
+      "description": "Seu score não foi dos piores, mas existe uma longa caminhada pela frente. \n\nJá é possível perceber seu esforço mas é necessário evoluir e praticar mais para que a memorização do texto seja completa.\n\nProcure praticar os exercícios que exigem mais de sua concentração e memória, como Fragmentos ou Primeira Letra, e além disso você pode treinar mais vezes ao dia para acelerar o processo."
+    },
+    "good-score": {
+      "title": "Muito bem!",
+      "description": "Sua pontuação foi boa, mas ainda precisa de alguns ajustes para memorizar o texto por completo. \n\nProcure praticar os exercícios que exigem mais de sua concentração e memória, como Fragmentos ou Primeira Letra, e além disso você pode treinar mais vezes ao dia para acelerar o processo."
+    },
+    "very-good-score": {
+      "title": "Excelente!",
+      "description": "Você memorizou este texto por completo.\n\nProcure sempre realizar uma manutenção, praticando e mencionando os trechos memorizados periodicamente para que não se esqueça nunca!"
     }
   }
 }

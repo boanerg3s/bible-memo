@@ -1,31 +1,59 @@
-import { AppStyles } from "@/styles";
+import React from "react";
 import { router } from "expo-router";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
-import { StyleSheet, Text, View } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { moderateScale } from "react-native-size-matters";
+import { ScrollView, StyleSheet, View } from "react-native";
+import { FirstStepContainer } from "../containers/first-step";
+import { ThirdStepContainer } from "../containers/third-step";
+import { SecondStepContainer } from "../containers/second-step";
+
+const STEPS = [FirstStepContainer, SecondStepContainer, ThirdStepContainer];
 
 export const PresentationPage: React.FC = () => {
+  const [step, setStep] = React.useState(0);
+  const StepComponent = React.useMemo(() => STEPS[step], [step]);
   const { t } = useLocale("welcome.pages.presentation");
-  const action = () => router.replace("/add-objective");
+
+  const action = () => {
+    if (step < STEPS.length - 1) {
+      setStep(step + 1);
+      return;
+    }
+
+    router.replace("/add-objective");
+  };
 
   return (
     <View style={styles.container}>
-      <View style={styles.artContainer} />
+      <ScrollView contentContainerStyle={styles.innerContainer}>
+        <StepComponent />
+      </ScrollView>
 
-      <View style={styles.contentContainer}>
-        <Text style={styles.title}>{t("title")}</Text>
-        <Text style={styles.description}>{t("description")}</Text>
-      </View>
-
-      <Button action={action}>{t("action")}</Button>
+      <LinearGradient colors={["rgba(255,255,255,0)", "white"]} style={styles.bottomContainer}>
+        <Button grow={false} rounded action={action}>
+          {t("action")}
+        </Button>
+      </LinearGradient>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  artContainer: { flex: 1 },
-  contentContainer: { padding: 10 },
-  container: { flex: 1 },
-  title: { fontSize: AppStyles.fontSize["3xl"], fontWeight: "bold" },
-  description: { fontSize: AppStyles.fontSize.base, marginVertical: 10, lineHeight: 24 },
+  container: {
+    flex: 1,
+  },
+  innerContainer: {
+    padding: moderateScale(20),
+    gap: moderateScale(10),
+    paddingBottom: moderateScale(120),
+  },
+  bottomContainer: {
+    bottom: 0,
+    shadowColor: "transparent",
+    width: "100%",
+    position: "absolute",
+    padding: moderateScale(20),
+  },
 });

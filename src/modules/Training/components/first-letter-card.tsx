@@ -1,11 +1,11 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { StyleSheet, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import { RevealableCard } from "@/modules/Training/components/revealable-card";
 
 const Component: React.FC<{ verse: App.BibleVerse; isVisible: boolean }> = (props) => {
-  const rawWords = props.verse.text.split(" ");
-  const words = rawWords.map((word) => word.replace(/[,.;!-?]/g, ""));
+  const words = props.verse.text.split(" ");
 
   const mappedWords = words.map((word, index) => {
     const [firstLetter, ...rest] = word;
@@ -15,7 +15,7 @@ const Component: React.FC<{ verse: App.BibleVerse; isVisible: boolean }> = (prop
     return (
       <View key={containerKey} style={styles.textContainer}>
         <Text style={styles.text}>{firstLetter}</Text>
-        <Text style={[styles.hidden, background]}>{rest}</Text>
+        {rest.length ? <Text style={[styles.hidden, background]}>{rest}</Text> : null}
       </View>
     );
   });
@@ -31,9 +31,9 @@ const Component: React.FC<{ verse: App.BibleVerse; isVisible: boolean }> = (prop
 export const FirstLetterCard = RevealableCard(Component);
 
 const styles = StyleSheet.create({
-  container: { padding: 20, flexDirection: "row", flexWrap: "wrap", gap: 10 },
+  container: { padding: moderateScale(20), flexDirection: "row", flexWrap: "wrap", gap: moderateScale(10) },
   number: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
-  textContainer: { flexDirection: "row", gap: 5 },
-  text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black, fontWeight: "900" },
-  hidden: { color: AppStyles.color.black, fontSize: AppStyles.fontSize.lg, letterSpacing: 4 },
+  textContainer: { flexDirection: "row", gap: moderateScale(2) },
+  text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black, fontWeight: "600" },
+  hidden: { color: AppStyles.color.black, fontSize: AppStyles.fontSize.lg },
 });

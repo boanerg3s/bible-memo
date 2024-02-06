@@ -1,10 +1,11 @@
+import React from "react";
 import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { useVoice } from "@/modules/Voice/hooks/listener";
 import { useCountdown } from "@/modules/Evaluation/hooks/countdown";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { VoiceVisualizer } from "@/modules/Voice/components/voice-visualizer";
-import React from "react";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 type Props = { onListen: (value: string) => void };
 
 export const EvaluateButton: React.FC<Props> = (props) => {
@@ -64,17 +65,19 @@ export const EvaluateButton: React.FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
-    height: 200,
-    borderRadius: 200,
+    width: scale(200),
+    height: scale(200),
+    borderRadius: scale(200),
     alignItems: "center",
     elevation: 6,
     shadowColor: "#000",
     backgroundColor: AppStyles.color.white,
     justifyContent: "center",
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.2,
   },
   visualizerSafeArea: {
-    height: 18,
+    height: verticalScale(18),
     alignItems: "center",
     justifyContent: "center",
   },
@@ -91,7 +94,7 @@ const styles = StyleSheet.create({
     fontSize: AppStyles.fontSize["3xl"],
   },
   error: {
-    marginTop: 40,
+    marginTop: moderateScale(40),
     textAlign: "center",
     fontSize: AppStyles.fontSize.sm,
   },

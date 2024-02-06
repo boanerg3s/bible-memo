@@ -9,6 +9,9 @@
     },
     "objective-suggestion-header": {
       "title": "Trecho da semana"
+    },
+    "notification-config-header": {
+      "title": "Configurações de notificação"
     }
   }
 }

@@ -1,22 +1,30 @@
 {
   "title": {
-    "READING": "Leitura",
+    "READING": "Leitura em voz alta",
+    "FIRST_LETTER": "Primeira letra",
     "FRAGMENTS": "Fragmentos",
-    "FIRST_LETTER": "Primeira letra"
+    "DICTATION": "Ditado"
   },
   "description": {
-    "READING": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "FRAGMENTS": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "FIRST_LETTER": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "READING": "Familiarize-se com o texto lendo-o na íntegra, sem qualquer obstáculo.",
+    "DICTATION": "Ouça e digite o que ouviu para familiarizar-se com o texto e aprimorar sua memória.",
+    "FIRST_LETTER": "Somente a primeira letra de cada palavra será exibida.",
+    "FRAGMENTS": "Algumas palavras aleatórias do texto serão ocultadas para aprimorar a memorização do texto."
   },
   "tip": {
-    "READING": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "FRAGMENTS": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "FIRST_LETTER": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    "READING": "Esta técnica é indicada quando o texto é desconhecido pelo leitor. Neste cenário, nenhuma barreira é imposta para facilitar a familiarização com o conteúdo. A leitura em voz alta é recomendada para aprimorar esse processo.",
+    "DICTATION": "Como em uma escola, você deverá digitar o texto recitado por nossa plataforma. Este treinamento irá gerar grande familiaridade com o texto.",
+    "FIRST_LETTER": "Esta técnica é recomendada para leitores com uma familiaridade mínima com o texto. A exibição da primeira letra de cada palavra pode ser comparada a um rio que flui naturalmente. Nesta etapa, é possível que qualquer pessoa com o mínimo de familiaridade com o texto possa recitá-lo integralmente.",
+    "FRAGMENTS": "Essa abordagem é ideal para fortalecer e consolidar a memorização, pois exige um alto nível de familiaridade com o texto. Ao praticar dessa forma, é possível memorizar completamente o trecho, tornando-se capaz de recitá-lo integralmente sem qualquer ajuda adicional.",
+    "more": "Saber mais"
   },
   "components": {
     "shuffle-button": {
       "action": "Embaralhar"
+    },
+    "dictation-card": {
+      "placeholder": "Digite o trecho do áudio acima...",
+      "play": "Ouvir"
     },
     "training-content-prepend": {
       "your-score": "Sua pontuação",

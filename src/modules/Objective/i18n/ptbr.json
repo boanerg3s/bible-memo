@@ -12,37 +12,46 @@
     },
     "view-objective": {
       "headline": "Você está memorizando:",
-      "exercises": "Exercícios"
+      "exercises": "Exercícios",
+      "delete": "Remover objetivo",
+      "remove": {
+        "title": "Atenção",
+        "description": "Deseja mesmo remover este objetivo da sua lista?",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
+      }
     }
   },
   "components": {
     "book-selector": {
       "title": "Livro",
-      "warning": "Selecione um livro"
+      "warning": "Selecione"
     },
     "chapter-selector": {
       "title": "Capítulo",
-      "warning": "Selecione um capítulo"
+      "warning": "Selecione"
     },
     "verse-from-selector": {
       "title": "Verso inicial",
-      "warning": "Selecione o verso inicial"
+      "warning": "Selecione"
     },
     "verse-to-selector": {
       "title": "Verso final",
-      "warning": "Selecione o verso final"
+      "warning": "Selecione"
     },
     "language-selector": {
       "title": "Idioma",
-      "warning": "Selecione um idioma"
+      "warning": "Selecione"
     },
     "version-selector": {
       "title": "Versão",
-      "warning": "Selecione uma versão"
+      "warning": "Selecione"
     },
     "score-bar": {
       "your-score": "Sua pontuação",
-      "action": "Avaliar memória"
+      "action": "Avaliar memória",
+      "about": "Uma pontuação de 0 a 100 que indica sua performance em relação a memorização do trecho selecionado.",
+      "more": "Saber mais"
     }
   },
   "containers": {
@@ -51,6 +60,14 @@
       "memorized": "Memorizado",
       "last-seen": "Último visto",
       "not-started": "Não iniciado"
+    }
+  },
+  "stores": {
+    "add-objective": {
+      "toast": {
+        "title": "Objetivo adicionado com sucesso",
+        "description": "Seu objetivo já está pronto para ser utilizado 👋"
+      }
     }
   }
 }

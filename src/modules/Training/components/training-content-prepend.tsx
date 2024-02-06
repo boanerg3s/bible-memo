@@ -4,6 +4,7 @@ import { useObjective } from "@/hooks/objective";
 import { router, useLocalSearchParams } from "expo-router";
 import { useScoreInfo } from "@/modules/Score/hooks/score";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 
 export const TrainingContentPrepend: React.FC = () => {
   const params = useLocalSearchParams();
@@ -28,25 +29,25 @@ export const TrainingContentPrepend: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 20,
-    height: 40,
+    gap: moderateScale(20),
+    height: verticalScale(40),
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 20,
+    paddingHorizontal: moderateScale(20),
     justifyContent: "space-between",
-    backgroundColor: AppStyles.color.blue,
+    backgroundColor: AppStyles.color.primary,
   },
   customButton: {
-    height: 28,
-    borderRadius: 100,
-    paddingHorizontal: 10,
+    height: verticalScale(28),
+    borderRadius: scale(100),
+    paddingHorizontal: moderateScale(10),
     justifyContent: "center",
     backgroundColor: "white",
   },
   customButtonLabel: {
     fontWeight: "bold",
     textTransform: "uppercase",
-    color: AppStyles.color.blue,
+    color: AppStyles.color.primary,
     fontSize: AppStyles.fontSize.xs,
   },
   caption: {

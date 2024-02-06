@@ -3,6 +3,7 @@ import { AppStyles } from "@/styles";
 import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
+import { moderateScale } from "react-native-size-matters";
 import { useSummarizedPassageContent } from "@/hooks/passage";
 import { FullPageLoading } from "@/components/full-page-loading";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
@@ -77,7 +78,7 @@ export const AddSuggestedObjective = WithHeaderNavigation(AddSuggestedObjectiveP
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  headerContainer: { flexDirection: "column", gap: 10 },
+  headerContainer: { flexDirection: "column", gap: moderateScale(10) },
   title: { fontSize: AppStyles.fontSize["2xl"], fontWeight: "bold" },
   headline: {
     fontSize: AppStyles.fontSize.sm,
@@ -86,6 +87,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   description: { fontSize: AppStyles.fontSize.base, color: AppStyles.color.gray },
-  innerContainer: { flexDirection: "column", gap: 20, paddingHorizontal: 20, paddingBottom: 20 },
+  innerContainer: {
+    flexDirection: "column",
+    gap: moderateScale(20),
+    paddingHorizontal: moderateScale(20),
+    paddingBottom: moderateScale(20),
+  },
   loadingContainer: { flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: "white" },
 });

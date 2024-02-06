@@ -1,6 +1,7 @@
 import { AppStyles } from "@/styles";
 import { router } from "expo-router";
 import { useLocale } from "@/hooks/locale";
+import { scale } from "react-native-size-matters";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export const ObjectiveListAction: React.FC = () => {
@@ -18,18 +19,18 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     borderWidth: 1,
-    borderRadius: 16,
+    borderRadius: scale(16),
     aspectRatio: 1 / 0.5,
     alignItems: "center",
     borderStyle: "dashed",
     justifyContent: "center",
-    borderColor: AppStyles.color.blue,
+    borderColor: AppStyles.color.primary,
   },
   title: {
     textAlign: "center",
     fontWeight: "bold",
     textTransform: "uppercase",
-    color: AppStyles.color.blue,
+    color: AppStyles.color.primary,
     fontSize: AppStyles.fontSize.sm,
   },
 });

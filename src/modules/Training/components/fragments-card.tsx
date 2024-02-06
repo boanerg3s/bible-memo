@@ -1,6 +1,7 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { StyleSheet, Text, View } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import { pickRandomNumbers } from "@/modules/Training/helpers/fragments";
 import { RevealableCard } from "@/modules/Training/components/revealable-card";
 
@@ -31,9 +32,9 @@ const Component: React.FC<{ verse: App.BibleVerse; isVisible: boolean }> = (prop
 export const FragmentsCard = RevealableCard(Component);
 
 const styles = StyleSheet.create({
-  container: { padding: 20, flexDirection: "row", flexWrap: "wrap", gap: 10 },
+  container: { padding: moderateScale(20), flexDirection: "row", flexWrap: "wrap", gap: moderateScale(10) },
   number: { fontSize: AppStyles.fontSize.sm, color: AppStyles.color.gray, fontWeight: "bold" },
-  textContainer: { flexDirection: "row", gap: 2 },
+  textContainer: { flexDirection: "row", gap: moderateScale(2) },
   text: { fontSize: AppStyles.fontSize.lg, color: AppStyles.color.black },
   hiddenTextContainer: { backgroundColor: AppStyles.color.black },
 });

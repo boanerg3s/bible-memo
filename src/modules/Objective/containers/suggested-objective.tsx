@@ -1,4 +1,5 @@
 import { View, StyleSheet } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import { useSuggestedObjective } from "@/modules/Objective/hooks/lists";
 import { ObjectiveCard } from "@/modules/Objective/components/objective-card";
 
@@ -12,6 +13,4 @@ export const SuggestedObjective: React.FC = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: { gap: 20 },
-});
+const styles = StyleSheet.create({ container: { gap: moderateScale(20) } });

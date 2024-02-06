@@ -3,6 +3,15 @@ import * as Localization from "expo-localization";
 import { getPreference, savePreference } from "@/helpers/preference";
 
 /**
+ * Returns all available locales in this app
+ * @returns App.Language[]
+ */
+export const getAvailableLocales = (): App.Language[] => {
+  const translations = getTranslations();
+  return Object.keys(translations) as App.Language[];
+};
+
+/**
  * Returns the default user language
  * @returns App.Language
  */
@@ -15,7 +24,7 @@ export const getDefaultUserLanguage = (): App.Language => {
 
   const locale = availableLocales.includes(defaultLocale) ? defaultLocale : null;
   const baseLocale = availableLocales.includes(defaultBaseLocale) ? defaultBaseLocale : null;
-  return locale || baseLocale || "en";
+  return locale || baseLocale || "ptbr";
 };
 
 /**

@@ -25,7 +25,7 @@ const EvaluatePage = () => {
 
   // if result exists
   if (result !== undefined && result !== null) {
-    return <EvaluationResult score={result.score} newScore={result.newScore} />;
+    return <EvaluationResult score={result.score} />;
   }
 
   // passage audio capture screen

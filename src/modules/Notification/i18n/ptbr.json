@@ -1,0 +1,32 @@
+{
+  "pages": {
+    "notification": {
+      "title": "Notificações",
+      "description": "Personalize os dias e horários que deseja ser notificado para praticar a memorização da Bíblia Sagrada:"
+    }
+  },
+  "containers": {
+    "day-selection": {
+      "description": "Dias da semana",
+      "sunday": "Domingo",
+      "monday": "Segunda",
+      "tuesday": "Terça",
+      "wednesday": "Quarta",
+      "thursday": "Quinta",
+      "friday": "Sexta",
+      "saturday": "Sábado"
+    },
+    "time-selection": {
+      "description": "Horários",
+      "confirm": "Confirmar",
+      "remove": {
+        "action": "Remover",
+        "title": "Atenção",
+        "description": "Deseja mesmo remover este horário?",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
+      },
+      "add": "Adicionar outro horário"
+    }
+  }
+}

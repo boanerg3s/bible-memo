@@ -7,6 +7,8 @@ import WelcomeTranslations from "@/modules/Welcome/i18n";
 import TrainingTranslations from "@/modules/Training/i18n";
 import ObjectiveTranslations from "@/modules/Objective/i18n";
 import EvaluationTranslations from "@/modules/Evaluation/i18n";
+import NotificationTranslations from "@/modules/Notification/i18n";
+import ConfigurationTranslations from "@/modules/Configuration/i18n";
 type TranslationsTable = { [e in keyof App.Locale]: App.LocaleDefinition<App.Locale[e]> };
 
 const translations: TranslationsTable = {
@@ -18,6 +20,8 @@ const translations: TranslationsTable = {
   error: ErrorTranslations,
   evaluation: EvaluationTranslations,
   score: ScoreTranslations,
+  notification: NotificationTranslations,
+  configuration: ConfigurationTranslations,
 };
 
 export const getTranslations = (): Record<App.Language, App.Locale> => {

@@ -4,7 +4,7 @@ export interface ButtonProps {
   grow?: boolean;
   rounded?: boolean;
   size?: "large" | "small";
-  type?: "primary" | "secondary";
+  type?: "primary" | "secondary" | "danger";
   disabled?: boolean;
   append?: React.ReactElement;
 }

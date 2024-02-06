@@ -1,6 +1,7 @@
 import React from "react";
 import { AppStyles } from "@/styles";
 import { ButtonProps } from "@/components/button/interface";
+import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export const Button = (props: ButtonProps) => {
@@ -21,19 +22,21 @@ export const Button = (props: ButtonProps) => {
       flexDirection: "row",
     },
     container: {
-      gap: 10,
+      gap: moderateScale(10),
       width: "auto",
       flex: grow ? 1 : 0,
       alignItems: "center",
       flexDirection: "row",
-      paddingHorizontal: 10,
+      paddingHorizontal: moderateScale(10),
       justifyContent: "center",
-      height: size === "large" ? 48 : 36,
-      borderRadius: rounded ? (size === "large" ? 12 : 48) : 0,
+      height: verticalScale(size === "large" ? 48 : 36),
+      borderRadius: scale(rounded ? (size === "large" ? 12 : 48) : 0),
       backgroundColor: disabled
         ? AppStyles.color.lightGray
         : type === "primary"
-        ? AppStyles.color.blue
+        ? AppStyles.color.primary
+        : type === "danger"
+        ? AppStyles.color.red
         : AppStyles.color.gray,
     },
     label: {

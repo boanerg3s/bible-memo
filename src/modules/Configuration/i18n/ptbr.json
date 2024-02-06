@@ -1,0 +1,37 @@
+{
+  "pages": {
+    "configuration": {
+      "title": "Configurações",
+      "description": "Ajuste o Biblegram de acordo com suas preferências:"
+    }
+  },
+  "containers": {
+    "language-selection": {
+      "description": "Ajustes de idioma",
+      "picker-placeholder": "Selecione um idioma",
+      "save-preference": "Aplicar novas preferências",
+      "picker-language-label": {
+        "en": "English",
+        "ptbr": "Português"
+      }
+    },
+    "notification-selection": {
+      "description": "Ajustes de notificação"
+    },
+    "dark-mode-selection": {
+      "description": "Dark mode",
+      "hint": "Esta funcionalidade não está disponível para o seu dispositivo neste momento."
+    },
+    "reset-app": {
+      "description": "Resetar dados",
+      "hint": "Isso irá apagar todos os dados desta aplicação, incluindo trechos selecionados e pontuações.",
+      "action": {
+        "title": "Cuidado!",
+        "description": "Esta opção não poderá ser desfeita. Deseja continuar?",
+        "label": "Resetar aplicação",
+        "cancel": "Cancelar",
+        "confirm": "Confirmar"
+      }
+    }
+  }
+}

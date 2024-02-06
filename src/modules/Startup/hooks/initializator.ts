@@ -4,6 +4,7 @@ import { useLanguageStore } from "@/stores/language";
 import { useObjectiveStore } from "@/stores/objective";
 import { initializeDatabase } from "@/services/database";
 import { useNotificationStore } from "@/stores/notification";
+import { initializeNotificationService } from "@/services/notification";
 
 export const useInitialization = () => {
   const [isInitialized, setIsInitialized] = React.useState(false);
@@ -20,6 +21,7 @@ export const useInitialization = () => {
 
     await Promise.all([
       initLocalization(),
+      initializeNotificationService(),
       fetchObjectives(),
       fetchLanguagePreference(),
       fetchNotificationPreference(),
