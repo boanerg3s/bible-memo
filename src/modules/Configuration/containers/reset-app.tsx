@@ -5,6 +5,7 @@ import { useLocale } from "@/hooks/locale";
 import { Button } from "@/components/button";
 import Entypo from "@expo/vector-icons/Entypo";
 import { cleanDatabase } from "@/services/database";
+import { cancelAllAlarms } from "@/services/notification";
 import { moderateScale } from "react-native-size-matters";
 import { Alert, StyleSheet, Text, View } from "react-native";
 
@@ -13,6 +14,7 @@ export const ResetAppContainer = () => {
 
   const reset = async () => {
     async function resetAction() {
+      await cancelAllAlarms();
       await cleanDatabase();
       router.replace("/");
     }

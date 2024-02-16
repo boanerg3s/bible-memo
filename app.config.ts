@@ -5,7 +5,7 @@ const config: ExpoConfig = {
   name: "Biblegram",
   slug: "biblegram",
   scheme: "biblegram.app",
-  version: "0.0.2",
+  version: "0.0.4",
   orientation: "portrait",
   notification: { color: "#00ddb3", icon: "./assets/notification-icon.png" },
   icon: "./assets/icon.png",
@@ -15,12 +15,25 @@ const config: ExpoConfig = {
   ios: {
     supportsTablet: true,
     bundleIdentifier: "biblegram.app",
-    infoPlist: { NSMicrophoneUsageDescription: "Utilizamos o microfone para checar se um verso foi memorizado." },
+    infoPlist: {
+      UIBackgroundModes: ["fetch", "remote-notification"],
+      NSMicrophoneUsageDescription: "Utilizamos o microfone para checar se um verso foi memorizado.",
+    },
   },
   android: {
     package: "biblegram.app",
     adaptiveIcon: { foregroundImage: "./assets/adaptive-icon.png", backgroundColor: "#ffffff" },
-    permissions: ["android.permission.RECORD_AUDIO"],
+    permissions: [
+      "android.permission.INTERNET",
+      "android.permission.READ_EXTERNAL_STORAGE",
+      "android.permission.RECORD_AUDIO",
+      "android.permission.SYSTEM_ALERT_WINDOW",
+      "android.permission.VIBRATE",
+      "android.permission.WRITE_EXTERNAL_STORAGE",
+      "android.permission.USE_EXACT_ALARM",
+      "android.permission.POST_NOTIFICATIONS",
+      "android.permission.RECEIVE_BOOT_COMPLETED",
+    ],
   },
   experiments: { tsconfigPaths: true },
   plugins: [

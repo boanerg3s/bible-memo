@@ -1,0 +1,9 @@
+{
+  "components": {
+    "alarm-popup": {
+      "title": "Está na hora de praticar!",
+      "description": "Continue memorizando os trechos bíblicos que você selecionou.",
+      "action": "Parar o alarme"
+    }
+  }
+}

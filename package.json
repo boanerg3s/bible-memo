@@ -1,6 +1,6 @@
 {
   "name": "biblegram",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
@@ -55,6 +55,7 @@
     "@types/lodash": "^4.14.197",
     "@types/react": "~18.2.14",
     "@types/unidecode": "^0.1.1",
+    "@types/url-parse": "^1.4.11",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   },

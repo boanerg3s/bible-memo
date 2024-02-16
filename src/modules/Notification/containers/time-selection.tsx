@@ -2,13 +2,11 @@ import React from "react";
 import { AppStyles } from "@/styles";
 import { Card } from "@/components/card";
 import { useLocale } from "@/hooks/locale";
-import { Button } from "@/components/button";
 import { useNotificationStore } from "@/stores/notification";
 import { makeArrayUnique, removeFromArray } from "@/helpers/array";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { moderateScale, scale, verticalScale } from "react-native-size-matters";
 import { AddNewTimeDrawer, AddNewTimerDrawerRef } from "../components/add-new-time";
-import BottomDrawer from "react-native-animated-bottom-drawer";
 
 export const TimeSelectionContainer = () => {
   const { t } = useLocale("notification.containers.time-selection");

@@ -15,6 +15,7 @@
 		96905EF65AED1B983A6B3ABC /* libPods-biblememoapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-biblememoapp.a */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+		431FD8DF98E64E26908EDC82 /* notify.wav in Resources */ = {isa = PBXBuildFile; fileRef = 098C10B51BEF41A98D934F90 /* notify.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-biblememoapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		FFC6944D14FA4DE6A725B9F7 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "biblememoapp/noop-file.swift"; sourceTree = "<group>"; };
+		098C10B51BEF41A98D934F90 /* notify.wav */ = {isa = PBXFileReference; name = "notify.wav"; path = "biblememoapp/notify.wav"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
 				FFC6944D14FA4DE6A725B9F7 /* noop-file.swift */,
 				C91D3DCFAF344ED3B4C9671E /* biblememoapp-Bridging-Header.h */,
+				098C10B51BEF41A98D934F90 /* notify.wav */,
 			);
 			name = biblememoapp;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
+				431FD8DF98E64E26908EDC82 /* notify.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,8 +369,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = app.biblememo;
-				PRODUCT_NAME = biblememoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "biblegram.app";
+				PRODUCT_NAME = "Biblegram";
 				SWIFT_OBJC_BRIDGING_HEADER = "biblememoapp/biblememoapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -393,8 +397,8 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = app.biblememo;
-				PRODUCT_NAME = biblememoapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "biblegram.app";
+				PRODUCT_NAME = "Biblegram";
 				SWIFT_OBJC_BRIDGING_HEADER = "biblememoapp/biblememoapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

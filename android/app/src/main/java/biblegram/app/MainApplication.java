@@ -33,6 +33,7 @@ public class MainApplication extends Application implements ReactApplication {
         List<ReactPackage> packages = new PackageList(this).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
+        packages.add(new MyAppPackage());
         return packages;
       }
 
@@ -61,6 +62,7 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    
     if (!BuildConfig.REACT_NATIVE_UNSTABLE_USE_RUNTIME_SCHEDULER_ALWAYS) {
       ReactFeatureFlags.unstable_useRuntimeSchedulerAlways = false;
     }
@@ -71,6 +73,7 @@ public class MainApplication extends Application implements ReactApplication {
     if (BuildConfig.DEBUG) {
       ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     }
+
     ApplicationLifecycleDispatcher.onApplicationCreate(this);
   }
 

@@ -3,6 +3,7 @@ import HomeTranslations from "@/modules/Home/i18n";
 import BibleTranslations from "@/modules/Bible/i18n";
 import ErrorTranslations from "@/modules/Error/i18n";
 import ScoreTranslations from "@/modules/Score/i18n";
+import AlarmTranslations from "@/modules/Alarm/i18n";
 import WelcomeTranslations from "@/modules/Welcome/i18n";
 import TrainingTranslations from "@/modules/Training/i18n";
 import ObjectiveTranslations from "@/modules/Objective/i18n";
@@ -12,6 +13,7 @@ import ConfigurationTranslations from "@/modules/Configuration/i18n";
 type TranslationsTable = { [e in keyof App.Locale]: App.LocaleDefinition<App.Locale[e]> };
 
 const translations: TranslationsTable = {
+  alarm: AlarmTranslations,
   welcome: WelcomeTranslations,
   objective: ObjectiveTranslations,
   bible: BibleTranslations,

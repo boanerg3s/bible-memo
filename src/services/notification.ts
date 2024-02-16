@@ -1,20 +1,13 @@
-import { AppStyles } from "@/styles";
 import Constants from "expo-constants";
-import { Platform } from "react-native";
+import { NativeModules } from "react-native";
 import * as Notifications from "expo-notifications";
-import { getDefaultUserLanguage } from "@/helpers/language";
+import { closestWeekday, toYmdHisString } from "@/helpers/date";
+const { AlarmModule } = NativeModules;
 
-export async function initializeNotificationService() {
-  Notifications.setNotificationHandler({
-    handleNotification: async () => ({
-      shouldSetBadge: true,
-      shouldShowAlert: true,
-      shouldPlaySound: true,
-      priority: Notifications.AndroidNotificationPriority.MAX,
-    }),
-  });
-}
-
+/**
+ * Check if notification is allowed in this device
+ * @returns
+ */
 export async function requestNotificationPermissions() {
   if (Constants.isDevice) {
     const { status: existingStatus } = await Notifications.getPermissionsAsync();
@@ -30,68 +23,57 @@ export async function requestNotificationPermissions() {
     }
   }
 
-  if (Platform.OS === "android") {
-    Notifications.setNotificationChannelAsync("default", {
-      name: "default",
-      bypassDnd: true,
-      lightColor: AppStyles.color.primary,
-      vibrationPattern: [0, 250, 250, 250],
-      importance: Notifications.AndroidImportance.MAX,
-      lockscreenVisibility: Notifications.AndroidNotificationVisibility.PUBLIC,
-    });
-  }
-
   return { allowed: true };
 }
 
-function getTitleAndBodyForNotification(language: keyof Bible.VersionList<string>) {
-  if (language === "ptbr") {
-    return {
-      title: "Está na hora de praticar!",
-      body: "Continue memorizando os trechos bíblicos que você selecionou.",
-    };
-  }
+/**
+ * Create an alarm schedule
+ * @param when date Y-m-d H:i:s format
+ * @param notification Notification
+ * @returns
+ */
+export const createAlarm = async (time: string, day: App.NotificationDayConfiguration): Promise<void> => {
+  const weekdayDate = closestWeekday(day, time);
+  const when = toYmdHisString(weekdayDate);
 
-  return {
-    title: "It's time to practice!",
-    body: "Keep memorizing biblical texts chosen by you.",
-  };
-}
+  return new Promise((res, rej) =>
+    AlarmModule.createAlarm(
+      when,
+      "Está na hora de praticar!",
+      "Continue memorizando os trechos bíblicos que você selecionou.",
+      res,
+      rej
+    )
+  );
+};
 
-export async function schedulePushNotification(time: string, when: App.NotificationDayConfiguration) {
-  const [hours, minutes] = time.split(":");
-  const language = getDefaultUserLanguage();
+/**
+ * Stop an alarm ringing
+ * @returns
+ */
+export const stopAlarm = async (): Promise<void> => {
+  return new Promise((res, rej) => AlarmModule.stopAlarm(res, rej));
+};
 
-  const daysIds: Record<App.NotificationDayConfiguration, number> = {
-    every_sunday: 1,
-    every_monday: 2,
-    every_tuesday: 3,
-    every_wednesday: 4,
-    every_thursday: 5,
-    every_friday: 6,
-    every_saturday: 7,
-  };
+/**
+ * Returns if an alarm is ringing
+ * @returns
+ */
+export const isRinging = async (): Promise<boolean> => {
+  return new Promise((res, rej) => AlarmModule.isRinging(res, rej));
+};
 
-  return Notifications.scheduleNotificationAsync({
-    content: {
-      ...getTitleAndBodyForNotification(language),
-      color: AppStyles.color.primary,
-      vibrate: [0, 250, 250, 250],
-      sound: "notify.wav",
-    },
-    trigger: {
-      repeats: true,
-      hour: Number(hours),
-      weekday: daysIds[when],
-      minute: Number(minutes),
-    },
-  });
-}
+/**
+ * Cancel all alarms scheduled
+ * @returns
+ */
+export const cancelAllAlarms = async (): Promise<void> => {
+  return new Promise((res, rej) => AlarmModule.cancelAllAlarms(res, rej));
+};
 
-export async function cancelNotificationSchedule(notificationId: string) {
-  await Notifications.cancelScheduledNotificationAsync(notificationId);
-}
-
-export async function cancelAllNotifications() {
-  await Notifications.cancelAllScheduledNotificationsAsync();
+/**
+ * Method used in application initialization
+ */
+export async function initializeNotificationService() {
+  await Notifications.requestPermissionsAsync();
 }

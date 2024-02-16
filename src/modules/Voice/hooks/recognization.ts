@@ -12,7 +12,6 @@ import Voice, {
 LogBox.ignoreLogs(["new NativeEventEmitter"]);
 
 const VOICE_LOCALES: Record<App.Language, string> = {
-  en: "en-US",
   ptbr: "pt-BR",
 };
 
